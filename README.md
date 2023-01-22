@@ -12,6 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  <img src="https://github.com/saplanyanki/DS340-440/blob/main/assets/main.jpg" width="350" title="Fraud Detection">
   </a>
 
   <h3 align="center">Data Science Capstone Project at Penn State University</h3>
