@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template](https://static.vecteezy.com/system/resources/previews/003/504/819/original/brain-and-artificial-intelligence-line-icon-brain-innovation-logo-illustration-free-vector.jpg">
+  <a href="https://static.vecteezy.com/system/resources/previews/003/504/819/original/brain-and-artificial-intelligence-line-icon-brain-innovation-logo-illustration-free-vector.jpg">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
