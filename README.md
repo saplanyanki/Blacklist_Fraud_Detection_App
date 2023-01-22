@@ -161,15 +161,15 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Naereen/badges.svg
+[contributors-shield]: https://img.shields.io/github/contributors/saplanyanki/DS340-440?style=for-the-badge
 [contributors-url]: https://github.com/saplanyanki/DS340-440/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/saplanyanki/DS340-440?style=for-the-badge
 [forks-url]: https://github.com/saplanyanki/DS340-440/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/saplanyanki/DS340-440?style=for-the-badge
 [stars-url]: https://github.com/saplanyanki/DS340-440/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/saplanyanki/DS340-440?style=for-the-badge
 [issues-url]: https://github.com/saplanyanki/DS340-440/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/saplanyanki/DS340-440?style=for-the-badge
 [license-url]: https://github.com/saplanyanki/DS340-440/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
 [Python]: https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white
