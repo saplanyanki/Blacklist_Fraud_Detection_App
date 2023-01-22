@@ -1,4 +1,4 @@
-# Fraud Detection - DS340-440
+# Fraud Detection - DS340 & DS 440
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
