@@ -78,8 +78,9 @@ Project:
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [![Python][Python]][Python-url]
+* [![Learn][Learn]][Learn-url]
 * [![Tensorflow][Tensorflow]][Tensorflow-url]
-* [![Visual][Visual]][Visual-url]
+* [![Torch][Torch]][Torch-url]
 * [![Flask][Flask]][Flask-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -175,7 +176,15 @@ Use this space to list resources you find helpful and would like to give credit 
 [Python-url]: https://www.python.org/
 [Tensorflow]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
 [Tensorflow-url]: https://www.tensorflow.org/
-[Visual]: https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white
-[Visual-url]: https://code.visualstudio.com/
+[Torch]: https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white
+[Torch-url]: https://pytorch.org/
 [Flask]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/2.2.x/
+[Learn]: https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white
+[Learn-url]: https://scikit-learn.org/stable/
+
+
+
+
+
+
