@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/saplanyanki/DS340-440/assets/main.jpg">
+  <a href="https://github.com/saplanyanki/DS340-440/blob/main/assets/main.jpg">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
