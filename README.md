@@ -6,6 +6,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+![alt text](https://github.com/saplanyanki/DS340-440/blob/main/assets/main.jpg)
 
 
 <!-- PROJECT LOGO -->
