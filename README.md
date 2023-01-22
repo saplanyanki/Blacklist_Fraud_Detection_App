@@ -11,14 +11,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="[https://github.com/othneildrew/Best-README-Template](https://static.vecteezy.com/system/resources/previews/003/504/819/original/brain-and-artificial-intelligence-line-icon-brain-innovation-logo-illustration-free-vector.jpg)">
+  <a href="https://github.com/othneildrew/Best-README-Template](https://static.vecteezy.com/system/resources/previews/003/504/819/original/brain-and-artificial-intelligence-line-icon-brain-innovation-logo-illustration-free-vector.jpg">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Data Science Capstone Project at Penn State University</h3>
 
   <p align="center">
-    @yankisaplan & @elifreedman
+    @yankisaplan - @elifreedman
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the code »</strong></a>
     <br />
