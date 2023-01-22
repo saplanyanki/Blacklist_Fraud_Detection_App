@@ -20,7 +20,7 @@
   <p align="center">
     @yankisaplan - @elifreedman
     <br />
-    <a href="https://github.com/saplanyanki/DS340-440/sources"><strong>Explore the code »</strong></a>
+    <a href="https://github.com/saplanyanki/DS340-440/tree/main/sources"><strong>Explore the code »</strong></a>
     <br />
     <br />
     <a href="">View Demo</a>
