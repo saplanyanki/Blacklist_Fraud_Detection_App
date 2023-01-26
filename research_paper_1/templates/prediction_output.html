@@ -11,7 +11,23 @@
     </head>
     <div class="container", style="text-align: center;">
         <body>
+            <br><br>
         <h2>The Prediction Results</h2>
-        <p style="text-align: center;">{{ output }}</p>
+        <br><br>
+        <div align="center">
+            <table>
+                <h1>
+                    <h2>Entered Records</h2>
+                    <br><br>
+                    {% for table in tables %}
+                    <h2>{{titles[loop.index]}}</h2>                            
+                    {{ table|safe }}
+                    {% endfor %}
+                    <br><br>
+                    <h2>The Result From Our Model:</h2>
+                    <p style="text-align: center;">{{ output }}</p>
+                </h1>
+            </table>
+        </div>
         </body>
     </div>
