@@ -1,3 +1,5 @@
+import sys
+sys.path.append("XBNet")
 from flask import Flask, request, render_template, url_for, redirect, request, session
 from training_utils import training,predict
 import pandas as pd
@@ -16,7 +18,7 @@ def main():
     if request.method == "POST":
         
         # Unpickle classifier
-        get_model = joblib.load("research_paper_1/xbnet_models/model.pkl")
+        get_model = joblib.load("app/xbnet_models/model.pkl")
         
         # Get values through input bars
         time = request.form.get("time")
@@ -39,8 +41,7 @@ def main():
         prediction = ""
     return render_template("index.html")
     
-
-
+    
 
 # Add a new route for the prediction_output page
 @app.route('/prediction_output/<int:pred>/table')
@@ -58,14 +59,7 @@ def prediction_output(pred):
             return render_template("prediction_output.html", tables=[], titles=[''],  output = fa)
         else:
             return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''],  output = fa)
-# def prediction_output(pred):
-#     user_data = pd.read_csv('user_data.csv')
-#     if pred == 1:
-#         nfa = 'Non-Fraudalent Activity'
-#         return render_template('prediction_output.html', tables=[user_data.to_html()], titles=[''], output = nfa)
-#     else:
-#         fa = 'Fraudalent Activity'
-#         return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''],  output = fa)
+
 
 # Running the app
 if __name__ == '__main__':

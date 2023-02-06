@@ -1,3 +1,5 @@
+import sys
+sys.path.append("XBNet")
 from flask import Flask, request, render_template, url_for, redirect, request, session
 from training_utils import training,predict
 import pandas as pd
@@ -7,18 +9,15 @@ import joblib
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-# Main function here
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def landing_page():
+    return render_template('selection.html')
 
-def main():
+@app.route('/index.html', methods=['GET', 'POST'])
+def index():
     X = pd.DataFrame()
-    # If a form is submitted
     if request.method == "POST":
-        
-        # Unpickle classifier
-        get_model = joblib.load("research_paper_1/xbnet_models/model.pkl")
-        
-        # Get values through input bars
+        get_model = joblib.load("app/xbnet_models/model.pkl")
         time = request.form.get("time")
         v1 = request.form.get("v1")
         v2 = request.form.get("v2")
@@ -26,25 +25,45 @@ def main():
         v4 = request.form.get("v4")
         v5 = request.form.get("v5")
         amount = request.form.get("amount")
-
-        # Put inputs to dataframe
         X = pd.DataFrame([[time, v1, v2, v3, v4, v5, amount]], columns = ["Time", "V1", "V2", "V3", "V4", "V5", "Amount"]).astype(float)
         X.to_csv('user_data.csv', index=None)
-        # Get prediction
         prediction = predict(get_model,X.to_numpy()[0,:])
-
         return redirect(url_for('prediction_output', pred=prediction))
-
     else:
         prediction = ""
     return render_template("index.html")
     
-    
+@app.route('/index2.html', methods=['GET', 'POST'])
+def index2():
+    if request.method == 'POST':
+        # Get the file from the form request
+        file = request.files['file']
+
+        # If a file is selected
+        if file:
+            # Save the file to the server
+            file.save(file.filename)
+
+            # Load the file using pandas
+            X = pd.read_csv(file.filename)
+
+            # Unpickle the classifier
+            get_model = joblib.load("research_paper_1/xbnet_models/model.pkl")
+
+            # Get the prediction
+            prediction = predict(get_model, X.to_numpy()[0,:])
+            print(prediction)
+            # Save the user's data to a file
+            X.to_csv('research_paper_1/user_file/user_data.csv', index=None)
+            # Redirect the user to the prediction_output page
+            return redirect(url_for('prediction_output', pred=prediction))
+
+    return render_template('index2.html')
 
 # Add a new route for the prediction_output page
 @app.route('/prediction_output/<int:pred>/table')
 def prediction_output(pred):
-    user_data = pd.read_csv('user_data.csv')
+    user_data = pd.read_csv('research_paper_1/user_file/user_data.csv')
     if pred == 1:
         nfa = 'Non-Fraudalent Activity'
         if user_data.empty:

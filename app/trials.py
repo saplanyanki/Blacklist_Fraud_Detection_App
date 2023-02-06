@@ -1,3 +1,5 @@
+import sys
+sys.path.append("XBNet")
 import torch
 import numpy as np
 import pandas as pd
@@ -30,7 +32,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 
 m,acc, lo, val_ac, val_lo = run_XBNET(X_train,X_test,y_train,y_test,model,criterion,optimizer,30,10)
 #last two parameters are batch size and epoch
-joblib.dump(model, "research_paper_1/xbnet_models/model.pkl")
+joblib.dump(model, "app/xbnet_models/model.pkl")
 #save the model
 
 print(predict(m,x_data.to_numpy()[0,:]))

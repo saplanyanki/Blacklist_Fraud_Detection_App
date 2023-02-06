@@ -1,3 +1,5 @@
+import sys
+sys.path.append("XBNet")
 import joblib
 import pandas as pd
 from training_utils import training,predict

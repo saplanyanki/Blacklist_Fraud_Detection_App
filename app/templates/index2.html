@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <link href="../static/css/style.css" rel="stylesheet">
+        <link href="../static/assets/favicon.jpg" rel="icon">
+
+        <title>Blacklist</title>
+        <style>
+            table {
+              border-collapse: collapse;
+              margin: auto;
+              width: 100%;
+              border: 1px solid black;
+            }
+            th, td {
+              border: 1px solid black;
+              padding: 8px;
+              text-align: center;
+            }
+            th {
+              background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container", style="text-align: center;">
+            <h2> Please Upload Your CSV File Here</h2>
+                <input type="file" id="fileInput" accept=".csv"/>
+                <br><br>
+                <button onclick="previewFile()" class="button-33">Preview File</button>
+                <br><br>
+                <br><br>
+                <table id="previewTable"></table>
+                <script>
+                    function previewFile() {
+                        const fileInput = document.getElementById("fileInput");
+                        const file = fileInput.files[0];
+                
+                        if (!file) {
+                        alert("No file selected.");
+                        return;
+                        }
+                
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                        const csvData = e.target.result;
+                        const lines = csvData.split("\n");
+                        const previewTable = document.getElementById("previewTable");
+                        previewTable.innerHTML = "";
+                
+                        for (let i = 0; i < lines.length; i++) {
+                            const line = lines[i].split(",");
+                            const row = previewTable.insertRow(-1);
+                            for (let j = 0; j < line.length; j++) {
+                            const cell = row.insertCell(-1);
+                            cell.innerHTML = line[j];
+                            }
+                        }
+                        };
+                        reader.readAsText(file);
+                    }
+                </script>
+                <br><br>
+                <button id="seeResultsButton" class="button-33" disabled onclick="window.location.href='/prediction_output/0/table'">See Results</button>
+                <script>
+                    const fileInput = document.getElementById("fileInput");
+                    const seeResultsButton = document.getElementById("seeResultsButton");
+                    
+                    fileInput.addEventListener("change", function() {
+                        if (fileInput.files.length > 0) {
+                        seeResultsButton.disabled = false;
+                        }
+                    });
+                    
+                    seeResultsButton.addEventListener("click", function() {
+                        const formData = new FormData();
+                        formData.append("file", fileInput.files[0]);
+                    
+                        fetch("/index2.html", {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            window.location.href = "/prediction_output.html";
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                    });
+                </script>
+        </div>
+    </body>
+</html>

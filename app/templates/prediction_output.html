@@ -4,14 +4,15 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <link href="static/css/style.css" rel="stylesheet">
-        <link href="static/main.jpg" rel="icon">
+        <link href="../static/css/style.css" rel="stylesheet">
+        <link href="../static/assets/favicon.jpg" rel="icon">
 
         <title>Blacklist</title>
     </head>
     <div class="container", style="text-align: center;">
         <body>
             <br><br>
+        <img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}">
         <h2>The Prediction Results</h2>
         <br><br>
         <div align="center">
@@ -31,3 +32,4 @@
         </div>
         </body>
     </div>
+</html>
