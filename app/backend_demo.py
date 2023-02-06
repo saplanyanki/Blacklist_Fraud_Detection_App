@@ -48,13 +48,13 @@ def index2():
             X = pd.read_csv(file.filename)
 
             # Unpickle the classifier
-            get_model = joblib.load("research_paper_1/xbnet_models/model.pkl")
+            get_model = joblib.load("app/xbnet_models/model.pkl")
 
             # Get the prediction
             prediction = predict(get_model, X.to_numpy()[0,:])
             print(prediction)
             # Save the user's data to a file
-            X.to_csv('research_paper_1/user_file/user_data.csv', index=None)
+            X.to_csv('app/user_file/user_data.csv', index=None)
             # Redirect the user to the prediction_output page
             return redirect(url_for('prediction_output', pred=prediction))
 
@@ -63,7 +63,7 @@ def index2():
 # Add a new route for the prediction_output page
 @app.route('/prediction_output/<int:pred>/table')
 def prediction_output(pred):
-    user_data = pd.read_csv('research_paper_1/user_file/user_data.csv')
+    user_data = pd.read_csv('app/user_file/user_data.csv')
     if pred == 1:
         nfa = 'Non-Fraudalent Activity'
         if user_data.empty:
