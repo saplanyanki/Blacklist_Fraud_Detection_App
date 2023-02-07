@@ -1,13 +1,10 @@
 import sys
 sys.path.append("XBNet")
-
 from flask import Flask, request, render_template, url_for, redirect, request
 from training_utils import training,predict
 import pandas as pd
 import joblib
 
-
-####
 # This is temporary before we create a database of user/pass combinations
 class User:
     def __init__(self, id, username, password):
@@ -124,4 +121,4 @@ def prediction_output(pred):
 # Running the app
 if __name__ == '__main__':
     app.run(debug = True)
-    #server listens local host on http://127.0.0.1:5000/
+#server listens local host on http://127.0.0.1:5000/
