@@ -9,12 +9,14 @@ from training_utils import training,predict
 from models import XBNETClassifier
 from run import run_XBNET
 import joblib
+from modifications import *
 
-data = pd.read_csv('test/creditcard.csv')
+#data = pd.read_csv('test/creditcard.csv')
+data = df_smote
 #this is the actual one
-#data = data.iloc[0:4000, :]
+data = data.iloc[0:20000, :]
 #This is done for flask app trials
-data = data.iloc[0:4000, [0,1,2,3,4,5,29,30]]
+#data = data.iloc[0:4000, [0,1,2,3,4,5,29,30]]
 #print(data)
 print(data.shape)
 x_data = data[data.columns[:-1]]
