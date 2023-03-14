@@ -31,12 +31,12 @@ df.drop('unix_time', axis=1, inplace=True)
 df.drop('merch_lat', axis=1, inplace=True)
 df.drop('merch_long', axis=1, inplace=True)
 df.drop('street', axis=1, inplace=True)
-df.drop('lat', axis=1, inplace=True)
-df.drop('long', axis=1, inplace=True)
+# df.drop('lat', axis=1, inplace=True)
+# df.drop('long', axis=1, inplace=True)
 df.drop('trans_date_trans_time', axis=1, inplace=True)
 df.drop('city_pop', axis=1, inplace=True)
 df.drop('city', axis=1, inplace=True)
-df.drop('state', axis=1, inplace=True)
+#df.drop('state', axis=1, inplace=True)
 
 def genders(row):
   if row['gender'] == 'M':
@@ -66,14 +66,21 @@ def create_group_columns(data):
 df = create_group_columns(df)
 df.drop('category', axis=1, inplace=True)
 
-# load data into a Pandas DataFrame
+one_hot = pd.get_dummies(df['state'])
+#one_hot_m = pd.get_dummies(df['merchant'])
+df = df.join(one_hot)
+#df = df.join(one_hot_m)
+df = df.drop('state', axis=1)
+#df.drop('zip', axis=1, inplace=True)
 
+# load data into a Pandas DataFrame
+df = df.iloc[0:40000, :]
 # split the data into features and target variable
 X = df.drop('is_fraud', axis=1)
 y = df['is_fraud']
 
 # create a SMOTE object and fit it to the data
-smote = SMOTE(sampling_strategy=0.2)
+smote = SMOTE(sampling_strategy=1)
 X_smote, y_smote = smote.fit_resample(X, y)
 
 # create a new DataFrame with the resampled data
@@ -81,3 +88,26 @@ df_smote = pd.concat([X_smote, y_smote], axis=1)
 
 cols = [col for col in df_smote.columns if col != 'is_fraud'] + ['is_fraud']
 df_smote = df_smote[cols]
+df_smote = df_smote.sample(frac=1, random_state=42)
+df_smote['amt'] = df_smote['amt'].round(1)
+print(df_smote.is_fraud.value_counts())
+#print(df_smote)
+
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.metrics import classification_report
+# from sklearn.model_selection import train_test_split
+
+# # split the data into training and test sets
+# X_train, X_test, y_train, y_test = train_test_split(X_smote, y_smote, test_size=0.3, random_state=42)
+
+# # create a Random Forest classifier
+# clf = RandomForestClassifier(n_estimators=200, max_depth=5, random_state=17)
+
+# # fit the classifier to the training data
+# clf.fit(X_train, y_train)
+
+# # make predictions on the test data
+# y_pred = clf.predict(X_test)
+
+# # evaluate the classifier
+# print(classification_report(y_test, y_pred))
