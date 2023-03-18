@@ -1,58 +1,35 @@
 import sys
 sys.path.append("XBNet")
-from flask import Flask, request, render_template, url_for, redirect, request
-from training_utils import training,predict
+
+from flask import Blueprint, render_template, request, flash
+from flask_login import login_required, current_user
+from . import db
+
+
+###
+from flask import Flask, request, render_template, url_for, redirect
+from flask_bcrypt import Bcrypt
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import InputRequired, Length, ValidationError
+from XBNet.training_utils import predict, training 
 import pandas as pd
 import joblib
-
-# This is temporary before we create a database of user/pass combinations
-class User:
-    def __init__(self, id, username, password):
-        self.id = id
-        self.username = username
-        self.password = password
-
-users = []
-users.append(User(id=1, username='efreedman56', password='1234'))
-users.append(User(id=2, username='Yanki', password='Saplan'))
-####
+###
 
 
-# Declare a Flask app
-app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+views = Blueprint('views', __name__)
 
 
-# This is the default page
-# Need to add a redirect for the register button
-@app.route('/', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-
-        username = request.form['username']
-        password = request.form['password']
-        
-        # Check user/pass combination
-        for u in users:
-            if username == u.username and password == u.password:
-                return redirect(url_for('selection'))
-
-        # If login fails, go back to login url
-        return redirect(url_for('login'))
-
-    return render_template('login.html')
-
-
-@app.route('/register')
-def register():
-    return render_template('register.html')
-
-
-@app.route('/selection')
+@views.route('/selection', methods=['GET', 'POST'])
 def selection():
-    return render_template('selection.html')
+    return render_template("selection.html")
 
-@app.route('/index.html', methods=['GET', 'POST'])
+
+@views.route('/index.html', methods=['GET', 'POST'])
+@login_required
 def index():
     X = pd.DataFrame()
     if request.method == "POST":
@@ -71,8 +48,10 @@ def index():
     else:
         prediction = ""
     return render_template("index.html")
-    
-@app.route('/index2.html', methods=['GET', 'POST'])
+
+
+@views.route('/index2.html', methods=['GET', 'POST'])
+@login_required
 def index2():
     if request.method == 'POST':
         # Get the file from the form request
@@ -99,9 +78,9 @@ def index2():
 
     return render_template('index2.html')
 
-# This is bugged
-# Add a new route for the prediction_output page
-@app.route('/prediction_output/<int:pred>/table')
+
+@views.route('/prediction_output/<int:pred>/table')
+@login_required
 def prediction_output(pred):
     user_data = pd.read_csv('app/user_file/user_data.csv')
     if pred == 1:
@@ -116,9 +95,3 @@ def prediction_output(pred):
             return render_template("prediction_output.html", tables=[], titles=[''],  output = fa)
         else:
             return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''],  output = fa)
-
-
-# Running the app
-if __name__ == '__main__':
-    app.run(debug = True)
-#server listens local host on http://127.0.0.1:5000/
