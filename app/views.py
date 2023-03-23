@@ -23,36 +23,36 @@ import joblib
 views = Blueprint('views', __name__)
 
 
-@views.route('/selection', methods=['GET', 'POST'])
-def selection():
-    return render_template("selection.html")
+# @views.route('/selection', methods=['GET', 'POST'])
+# def selection():
+#     return render_template("selection.html")
 
 
-@views.route('/index.html', methods=['GET', 'POST'])
+# @views.route('/index.html', methods=['GET', 'POST'])
+# @login_required
+# def index():
+#     X = pd.DataFrame()
+#     if request.method == "POST":
+#         get_model = joblib.load("app/xbnet_models/model.pkl")
+#         time = request.form.get("time")
+#         v1 = request.form.get("v1")
+#         v2 = request.form.get("v2")
+#         v3 = request.form.get("v3")
+#         v4 = request.form.get("v4")
+#         v5 = request.form.get("v5")
+#         amount = request.form.get("amount")
+#         X = pd.DataFrame([[time, v1, v2, v3, v4, v5, amount]], columns = ["Time", "V1", "V2", "V3", "V4", "V5", "Amount"]).astype(float)
+#         X.to_csv('user_data.csv', index=None)
+#         prediction = predict(get_model,X.to_numpy()[0,:])
+#         return redirect(url_for('prediction_output', pred=prediction))
+#     else:
+#         prediction = ""
+#     return render_template("index.html")
+
+
+@views.route('/upload_page.html', methods=['GET', 'POST'])
 @login_required
-def index():
-    X = pd.DataFrame()
-    if request.method == "POST":
-        get_model = joblib.load("app/xbnet_models/model.pkl")
-        time = request.form.get("time")
-        v1 = request.form.get("v1")
-        v2 = request.form.get("v2")
-        v3 = request.form.get("v3")
-        v4 = request.form.get("v4")
-        v5 = request.form.get("v5")
-        amount = request.form.get("amount")
-        X = pd.DataFrame([[time, v1, v2, v3, v4, v5, amount]], columns = ["Time", "V1", "V2", "V3", "V4", "V5", "Amount"]).astype(float)
-        X.to_csv('user_data.csv', index=None)
-        prediction = predict(get_model,X.to_numpy()[0,:])
-        return redirect(url_for('prediction_output', pred=prediction))
-    else:
-        prediction = ""
-    return render_template("index.html")
-
-
-@views.route('/index2.html', methods=['GET', 'POST'])
-@login_required
-def index2():
+def upload_page():
     if request.method == 'POST':
         # Get the file from the form request
         file = request.files['file']
@@ -76,7 +76,7 @@ def index2():
             # Redirect the user to the prediction_output page
             return redirect(url_for('prediction_output', pred=prediction))
 
-    return render_template('index2.html')
+    return render_template('upload_page.html')
 
 
 @views.route('/prediction_output/<int:pred>/table')

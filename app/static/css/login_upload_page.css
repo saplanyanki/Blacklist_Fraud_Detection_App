@@ -1,0 +1,49 @@
+.bg-nav{
+    background: #F5F5F5;
+    /* background: -webkit-linear-gradient(to right, #0047AB, #000000);
+    background: linear-gradient(to right, #0047AB, #000000); */
+}
+
+.bg{
+    background: #F5F5F5;
+}
+
+.mt-100{
+    margin-top:100px;
+    margin-left:50px;
+}
+
+.mt-99{
+    margin-top:100px;
+    margin-right:50px;
+}
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: lightgray;
+}
+
+.logout_button {
+    background-color: #26A69A;
+}
+
+#inp {
+    text-align: center;
+    margin: auto;
+}

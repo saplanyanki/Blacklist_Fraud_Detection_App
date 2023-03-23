@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/assets/favicon.jpg" rel="icon">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/login_upload_page.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+  <title>Blacklist</title>
+
+  </head>
+    <body class="bg-nav">
+      <div class="container bg-nav" style="text-align: center;">
+        <nav class="navbar navbar-light bg-light p-3">
+          <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+            <a class="navbar-brand" href="#"> Blacklist Terminal - CSV File Data Entry </a>
+            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <button style="height:50px; width:100px; font-size: 14px;" class="btn-block btn-lg logout_button" onclick="location.href = '/logout'"> Log Out </button>
+            <!-- <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                      Hello, username
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+      </div>
+    </body>
+    <body class="bg-nav" style="text-align: center;">
+      <h2> Upload Your CSV File</h2>
+      <br>
+      <br>
+      <input type="file" id="inp" accept=".csv"/>
+      <div class="container bg-nav" style="text-align: center;">
+          <br><br>
+            <button onclick="previewFile()" class="button-33">Preview File</button>
+            <br><br><br><br>
+              <table id="previewTable"></table>
+                <script>
+                  function previewFile() {
+                    const fileInput = document.getElementById("fileInput");
+                    const file = fileInput.files[0];
+              
+                    if (!file) {
+                      alert("No file selected.");
+                      return;
+                    }
+              
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                      const csvData = e.target.result;
+                      const lines = csvData.split("\n");
+                      const previewTable = document.getElementById("previewTable");
+                      previewTable.innerHTML = "";
+              
+                      for (let i = 0; i < lines.length; i++) {
+                      const line = lines[i].split(",");
+                      const row = previewTable.insertRow(-1);
+                          for (let j = 0; j < line.length; j++) {
+                          const cell = row.insertCell(-1);
+                          cell.innerHTML = line[j];
+                          }
+                      }
+                    };
+                    reader.readAsText(file);
+                  }
+                </script>
+              <br><br>
+              <button id="seeResultsButton" class="button-33" disabled onclick="window.location.href='/prediction_output/0/table'"> See Results </button>
+              <script>
+                const fileInput = document.getElementById("fileInput");
+                const seeResultsButton = document.getElementById("seeResultsButton");
+                  
+                fileInput.addEventListener("change", function() {
+                  if (fileInput.files.length > 0) {
+                    seeResultsButton.disabled = false;
+                  }
+                });
+                  
+                seeResultsButton.addEventListener("click", function() {
+                  const formData = new FormData();
+                  formData.append("file", fileInput.files[0]);
+                  
+                  fetch("/index2.html", {
+                    method: "POST",
+                    body: formData
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    console.log(data);
+                    window.location.href = "/prediction_output.html";
+                  })
+                  .catch(error => {
+                    console.error(error);
+                  });
+                });
+              </script>
+      </div>
+    </body>
+</html>
