@@ -1,19 +1,13 @@
 .bg-nav{
     background: #F5F5F5;
-    /* background: -webkit-linear-gradient(to right, #0047AB, #000000);
-    background: linear-gradient(to right, #0047AB, #000000); */
 }
 
-.bg{
-    background: #F5F5F5;
-}
-
-.mt-100{
+.mt-right{
     margin-top:100px;
     margin-left:50px;
 }
 
-.mt-99{
+.mt-left{
     margin-top:100px;
     margin-right:50px;
 }
@@ -29,21 +23,26 @@ table {
     border: 1px solid black;
 }
 
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: lightgray;
-}
-
-.logout_button {
+.color {
     background-color: #26A69A;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
 }
 
 #inp {
     text-align: center;
     margin: auto;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #26A69A;
+    color: #F5F5F5;
+    text-align: center;
 }

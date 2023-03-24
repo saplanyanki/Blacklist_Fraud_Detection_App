@@ -4,8 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link href="../static/assets/favicon.jpg" rel="icon">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/login_upload_page.css') }}"
+    <link href="../static/assets/favicon.jpg" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/login_upload_page.css') }}"
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,10 +21,13 @@
     <div class="contianer">
       <div class="row">
         <div class="col-md-8">
-          <h1 class="display-4 mt-100" style="font-size:60px">Credit Card Safety, Always Protected</h1>
+          <h1 class="display-4 mt-right" style="font-size:60px">Credit Card Safety, Always Protected</h1>
+          <div style="margin-left: 15%; margin-top: 3%;">
+            <img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}">
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="card mt-99">
+          <div class="card mt-left">
             <div class="card-body">
               <form method="POST">
                 <div class="form-group">
@@ -35,12 +38,22 @@
                   <label for="password">Password</label>
                   <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"/>
                 </div>
-                  <button type="submit" class="btn-block btn-lg logout_button" value="Login">Login</button>
+                  <button type="submit" class="btn-block btn-lg color" value="Login">Login</button>
               </form>
               <p class="mt-2">Not a member? <a href="register" style="color: #26A69A;">Create an account</a></p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div style="width: 50%; float: left;">
+        <br>
+        <p><a href="" style="color: #F5F5F5;">Support</a></p>
+      </div>
+      <div style="width: 50%; float: right;">
+        <br>
+        <p><a href="" style="color: #F5F5F5;">About</a></p>
       </div>
     </div>
     </form>
