@@ -1,7 +1,8 @@
+import os
 import sys
 sys.path.append("XBNet")
 
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, current_app, render_template, request, flash
 from flask_login import login_required, current_user
 from . import db
 
@@ -53,6 +54,7 @@ views = Blueprint('views', __name__)
 @views.route('/upload_page.html', methods=['GET', 'POST'])
 @login_required
 def upload_page():
+
     if request.method == 'POST':
         # Get the file from the form request
         file = request.files['file']
@@ -60,10 +62,10 @@ def upload_page():
         # If a file is selected
         if file:
             # Save the file to the server
-            file.save(file.filename)
+            file.save(os.path.join(current_app.instance_path, "user_data.csv"))
 
             # Load the file using pandas
-            X = pd.read_csv(file.filename)
+            X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
 
             # Unpickle the classifier
             get_model = joblib.load("app/xbnet_models/model.pkl")
@@ -71,8 +73,10 @@ def upload_page():
             # Get the prediction
             prediction = predict(get_model, X.to_numpy()[0,:])
             print(prediction)
+
             # Save the user's data to a file
-            X.to_csv('app/user_file/user_data.csv', index=None)
+            X.to_csv(os.path.join(current_app.instance_path, "user_data_file.csv"))
+
             # Redirect the user to the prediction_output page
             return redirect(url_for('prediction_output', pred=prediction))
 
@@ -82,7 +86,7 @@ def upload_page():
 @views.route('/prediction_output/<int:pred>/table')
 @login_required
 def prediction_output(pred):
-    user_data = pd.read_csv('app/user_file/user_data.csv')
+    user_data = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
     if pred == 1:
         nfa = 'Non-Fraudalent Activity'
         if user_data.empty:

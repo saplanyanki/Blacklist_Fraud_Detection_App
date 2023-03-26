@@ -50,7 +50,7 @@
               <table id="previewTable"></table>
                 <script>
                   function previewFile() {
-                    const fileInput = document.getElementById("fileInput");
+                    const fileInput = document.getElementById("inp");
                     const file = fileInput.files[0];
               
                     if (!file) {
@@ -80,7 +80,7 @@
               <br><br>
               <button id="seeResultsButton" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;" disabled onclick="window.location.href='/prediction_output/0/table'"> See Results </button>
               <script>
-                const fileInput = document.getElementById("fileInput");
+                const fileInput = document.getElementById("inp");
                 const seeResultsButton = document.getElementById("seeResultsButton");
                   
                 fileInput.addEventListener("change", function() {
@@ -93,7 +93,7 @@
                   const formData = new FormData();
                   formData.append("file", fileInput.files[0]);
                   
-                  fetch("/index2.html", {
+                  fetch("/upload_page.html", {
                     method: "POST",
                     body: formData
                   })

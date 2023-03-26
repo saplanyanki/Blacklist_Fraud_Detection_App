@@ -8,6 +8,9 @@ db = SQLAlchemy()
 DB_NAME = "database.db"
 
 
+
+
+
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'secretkey'
@@ -41,6 +44,6 @@ def create_app():
 
 
 def create_database(app):
-    if not path.exists('website/' + DB_NAME):
+    if not path.exists('app/instance/' + DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
