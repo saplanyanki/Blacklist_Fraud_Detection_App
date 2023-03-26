@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from training_utils import training,predict
-from models import XBNETClassifier
+from models_xb import XBNETClassifier
 from run import run_XBNET
 from torch.optim.lr_scheduler import StepLR
 import joblib
