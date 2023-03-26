@@ -56,11 +56,13 @@ views = Blueprint('views', __name__)
 def upload_page():
 
     if request.method == 'POST':
+
         # Get the file from the form request
         file = request.files['file']
 
         # If a file is selected
         if file:
+
             # Save the file to the server
             file.save(os.path.join(current_app.instance_path, "user_data.csv"))
 
@@ -68,14 +70,10 @@ def upload_page():
             X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
 
             # Unpickle the classifier
-            get_model = joblib.load("app/xbnet_models/model.pkl")
+            get_model = joblib.load(os.path.join(current_app.instance_path, "model.pkl"))
 
             # Get the prediction
             prediction = predict(get_model, X.to_numpy()[0,:])
-            print(prediction)
-
-            # Save the user's data to a file
-            X.to_csv(os.path.join(current_app.instance_path, "user_data_file.csv"))
 
             # Redirect the user to the prediction_output page
             return redirect(url_for('prediction_output', pred=prediction))

@@ -1,5 +1,6 @@
 import sys
 sys.path.append("XBNet")
+import os
 import torch
 import numpy as np
 import pandas as pd
@@ -11,6 +12,7 @@ from run import run_XBNET
 from torch.optim.lr_scheduler import StepLR
 import joblib
 from modifications import *
+from flask import current_app
 
 #data = pd.read_csv('test/creditcard.csv')
 data = df_smote
@@ -46,5 +48,5 @@ m,acc, lo, val_ac, val_lo = run_XBNET(X_train,X_test,y_train,y_test,model,criter
 #last two parameters are batch size and epoch
 
 #save the model
-joblib.dump(model, "app/xbnet_models/model.pkl")
+joblib.dump(model, os.path.join(current_app.instance_path, "model.pkl"))
 print(predict(m,x_data.to_numpy()[0,:]))
