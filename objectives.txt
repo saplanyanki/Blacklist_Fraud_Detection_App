@@ -1,3 +1,4 @@
+- Remove preview
 - Change font of 'Log Out' in upload_page.html
 - Make all buttons look the same 
 - Use this color scheme: Primary color: #00796B (a dark shade of teal green),
