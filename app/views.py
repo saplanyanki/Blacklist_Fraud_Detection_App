@@ -70,13 +70,14 @@ def upload_page():
             X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
 
             # Unpickle the classifier
-            get_model = joblib.load(os.path.join(current_app.instance_path, "model.pkl"))
+            get_model = joblib.load(os.path.join(current_app.instance_path, "v2.pkl"))
 
             # Get the prediction
             prediction = predict(get_model, X.to_numpy()[0,:])
+            print(prediction)
 
             # Redirect the user to the prediction_output page
-            return redirect(url_for('prediction_output', pred=prediction))
+            return redirect(url_for('views.prediction_output', pred=prediction))
 
     return render_template('upload_page.html')
 

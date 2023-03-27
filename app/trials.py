@@ -48,5 +48,5 @@ m,acc, lo, val_ac, val_lo = run_XBNET(X_train,X_test,y_train,y_test,model,criter
 #last two parameters are batch size and epoch
 
 #save the model
-joblib.dump(model, os.path.join(current_app.instance_path, "model.pkl"))
+joblib.dump(model, "instance/v2.pkl")
 print(predict(m,x_data.to_numpy()[0,:]))

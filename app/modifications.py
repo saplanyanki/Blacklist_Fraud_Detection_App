@@ -91,23 +91,5 @@ df_smote = df_smote[cols]
 df_smote = df_smote.sample(frac=1, random_state=42)
 df_smote['amt'] = df_smote['amt'].round(1)
 print(df_smote.is_fraud.value_counts())
-#print(df_smote)
 
-# from sklearn.ensemble import RandomForestClassifier
-# from sklearn.metrics import classification_report
-# from sklearn.model_selection import train_test_split
-
-# # split the data into training and test sets
-# X_train, X_test, y_train, y_test = train_test_split(X_smote, y_smote, test_size=0.3, random_state=42)
-
-# # create a Random Forest classifier
-# clf = RandomForestClassifier(n_estimators=200, max_depth=5, random_state=17)
-
-# # fit the classifier to the training data
-# clf.fit(X_train, y_train)
-
-# # make predictions on the test data
-# y_pred = clf.predict(X_test)
-
-# # evaluate the classifier
-# print(classification_report(y_test, y_pred))
+df_smote.to_csv('data.csv', index=False) # index=False to exclude the index column
