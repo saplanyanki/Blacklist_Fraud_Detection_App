@@ -78,7 +78,8 @@
                   }
                 </script>
               <br><br> -->
-              <button id="seeResultsButton" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;" disabled onclick="window.location.href='/prediction_output/0/table'"> See Results </button>
+              <button id="seeResultsButton" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;" disabled onclick="window.location.href='/prediction_output/table'"
+              > See Results </button>
               <script>
                 const fileInput = document.getElementById("inp");
                 const seeResultsButton = document.getElementById("seeResultsButton");
@@ -100,7 +101,7 @@
                   .then(response => response.json())
                   .then(data => {
                     console.log(data);
-                    window.location.href = "/prediction_output.html";
+                    window.location.href = "/prediction_output/table";
                   })
                   .catch(error => {
                     console.error(error);

@@ -5,6 +5,7 @@ sys.path.append("XBNet")
 from flask import Blueprint, current_app, render_template, request, flash
 from flask_login import login_required, current_user
 from . import db
+from flask import session
 
 
 ###
@@ -15,7 +16,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
-from XBNet.training_utils import predict, training 
+from XBNet.training_utils import predict, training, predict_proba
 import pandas as pd
 import joblib
 ###
@@ -50,6 +51,7 @@ views = Blueprint('views', __name__)
 #         prediction = ""
 #     return render_template("index.html")
 
+# Flask server-side code
 
 @views.route('/upload_page.html', methods=['GET', 'POST'])
 @login_required
@@ -66,35 +68,44 @@ def upload_page():
             # Save the file to the server
             file.save(os.path.join(current_app.instance_path, "user_data.csv"))
 
-            # Load the file using pandas
-            X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
+            # # Load the file using pandas
+            # X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
 
-            # Unpickle the classifier
-            get_model = joblib.load(os.path.join(current_app.instance_path, "v2.pkl"))
+            # # Unpickle the classifier
+            # get_model = joblib.load(os.path.join(current_app.instance_path, "v2.pkl"))
 
-            # Get the prediction
-            prediction = predict(get_model, X.to_numpy()[0,:])
-            print(prediction)
+            # # Get the prediction
+            # prediction = predict(get_model, X.to_numpy()[0,:])
+            # print(prediction)
 
             # Redirect the user to the prediction_output page
-            return redirect(url_for('views.prediction_output', pred=prediction))
+            return redirect(url_for('views.prediction_output'))
 
     return render_template('upload_page.html')
 
 
-@views.route('/prediction_output/<int:pred>/table')
+@views.route('/prediction_output/table')
 @login_required
-def prediction_output(pred):
+def prediction_output():
+    # Load the file using pandas
+    X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
+
+    # Unpickle the classifier
+    get_model = joblib.load(os.path.join(current_app.instance_path, "v2.pkl"))
+
+    # Get the prediction
+    prediction = predict(get_model, X.to_numpy()[0,:])
+    print(prediction)
     user_data = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
-    if pred == 1:
-        nfa = 'Non-Fraudalent Activity'
+    if prediction == 1:
+        nfa = 'Non-Fraudulent Activity'
         if user_data.empty:
-            return render_template('prediction_output.html', tables=[], titles=[''], output = nfa)
+            return render_template('prediction_output.html', tables=[], titles=[''], output=nfa)
         else:
-            return render_template('prediction_output.html', tables=[user_data.to_html()], titles=[''], output = nfa)
+            return render_template('prediction_output.html', tables=[user_data.to_html()], titles=[''], output=nfa)
     else:
-        fa = 'Fraudalent Activity'
+        fa = 'Fraudulent Activity'
         if user_data.empty:
-            return render_template("prediction_output.html", tables=[], titles=[''],  output = fa)
+            return render_template("prediction_output.html", tables=[], titles=[''], output=fa)
         else:
-            return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''],  output = fa)
+            return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''], output=fa)
