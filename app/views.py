@@ -114,3 +114,9 @@ def prediction_output():
             return render_template("prediction_output.html", tables=[], titles=[''], output=fa, model_says = message)
         else:
             return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''], output=fa, model_says = message)
+
+@views.route('/access_models.html')
+@login_required
+def access_models():
+    # code to render the access_models.html template
+    return render_template('access_models.html')
