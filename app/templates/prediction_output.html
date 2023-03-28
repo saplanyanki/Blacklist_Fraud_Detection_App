@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href="static/assets/favicon.jpg" rel="icon">
-        <title>Blacklist Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/new_style.css') }}"
     </head>
     
     <div class="container", style="text-align: center;">
@@ -77,7 +77,8 @@
                         </nav>
                         <h1 class="h2">My Results</h1>
                         <br><br>
-                        <img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}">
+                        
+                        <!-- img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}"-->
                         <br><br>
                         <style>
                           table {
@@ -98,27 +99,219 @@
                         <div align="center">
                             <table>
                                 <h1>
-                                    <h2>Loaded Data Table</h2>
+                                    <h2>Loaded Data</h2>
                                     <br><br>
                                     {% for table in tables %}
                                     <h2>{{titles[loop.index]}}</h2>                            
                                     {{ table|safe }}
                                     {% endfor %}
                                     <br><br>
-                                    <h2>XBNet Prediction</h2>
+                                    <h2>Fraud Detection Results</h2>
                                 </h1>
                             </table>
                         </div>
                         <div class="card">
-                            <h5 class="card-header">Fraud Risk</h5>
-                            <div class="card-body">
-                              <h5 class="card-title">{{ output }}</h5>
-                              <p class="card-text">
-                                <script> document.write(new Date().toLocaleDateString()); </script>
-                              </p>
-                              <p class="card-text text-success">18.2% increase since last month</p>
-                            </div>
+                          <h5 class="card-header">Model Name: XBNet V2.0</h5>
+                          <div class="card-body">
+                            <h5 class="card-title">Prediction: {{ output }}</h5>
+                            <h5 class="card-title">Accuracy: {{ model_says }}</h5>
+                            <p class="card-text">
+                              <script> document.write(new Date().toLocaleDateString()); </script>
+                            </p>
+                            <p class="card-text text-success">18.2% increase since last month</p>
+                          </div>
                         </div>
+                      <br><br>
+                      <h2>Checkout Blacklist's Premium Packages</h2>
+                      <br><br>
+                      <div class="card-container">
+                        <div class="card">
+                        <div class="pack-container">
+                          <div class="header">
+                            <p class="title">
+                              Blacklist Starter
+                            </p>
+                            <div class="price-container">
+                              <span>$</span>9.99
+                              <span>/mo</span>
+                            </div>
+                          </div>
+                          <div>
+                            <ul class="lists">
+                              <li class="list">
+                                <span>
+                                  <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                  </svg>
+                                </span>
+                                <p>
+                                  Access to XBNet V1.5
+                                </p>
+                              </li>
+                              <li class="list">
+                                <span>
+                                  <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                  </svg>
+                                </span>
+                                <p>
+                                  25 Predictions
+                                </p>
+                              </li>
+                              <li class="list">
+                                <span>
+                                  <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                  </svg>
+                                </span>
+                                <p>
+                                  Single User Access
+                                </p>
+                              </li>
+                              <li class="list">
+                                <span>
+                                  <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                  </svg>
+                                </span>
+                                <p>
+                                  24 Hour Tech Support
+                                </p>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="button-container">
+                            <button type="button">
+                              Buy Now
+                            </button>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card">
+                          <div class="pack-container2">
+                            <div class="header">
+                              <p class="title">
+                                Blacklist Arcadia
+                              </p>
+                              <div class="price-container">
+                                <span>$</span>29.99
+                                <span>/mo</span>
+                              </div>
+                            </div>
+                            <div>
+                              <ul class="lists">
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    Access to XBNet V2.0
+                                  </p>
+                                </li>
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    75 Predictions
+                                  </p>
+                                </li>
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    Family Access
+                                  </p>
+                                </li>
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    24 Hour Tech Support
+                                  </p>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="button-container">
+                              <button type="button">
+                                Buy Now
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="pack-container3">
+                            <div class="header">
+                              <p class="title">
+                                Blacklist Gotham
+                              </p>
+                              <div class="price-container">
+                                <span>$</span>59.99
+                                <span>/mo</span>
+                              </div>
+                            </div>
+                            <div>
+                              <ul class="lists">
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    Access to All Models
+                                  </p>
+                                </li>
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    Unlimited Predictions
+                                  </p>
+                                </li>
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    VIP Access
+                                  </p>
+                                </li>
+                                <li class="list">
+                                  <span>
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                  </span>
+                                  <p>
+                                    Live Tech Support
+                                  </p>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="button-container">
+                              <button type="button">
+                                Buy Now
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </main>
                 </div>
             </div>

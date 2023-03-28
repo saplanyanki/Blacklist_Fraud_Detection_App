@@ -6,7 +6,8 @@ from flask import Blueprint, current_app, render_template, request, flash
 from flask_login import login_required, current_user
 from . import db
 from flask import session
-
+import torch.nn.functional as F
+import torch
 
 ###
 from flask import Flask, request, render_template, url_for, redirect
@@ -96,16 +97,31 @@ def prediction_output():
     # Get the prediction
     prediction = predict(get_model, X.to_numpy()[0,:])
     print(prediction)
+
+    proba = predict_proba(get_model, X.to_numpy()[0,:])
+    print(proba)
+
+    proba_tensor = torch.tensor([proba], dtype=torch.float)
+    probs = F.softmax(proba_tensor, dim=0)
+
+    positive_prob = 1 - probs.item()
+    negative_prob = probs.item()
+
+    print("Probability of Negative class (Non-Fraudulent Activity):", negative_prob)
+    print("Probability of Positive class (Fraudulent Activity):", positive_prob)
+
     user_data = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
     if prediction == 1:
         nfa = 'Non-Fraudulent Activity'
+        message = f"The Model is {negative_prob:.2%} sure that it is {nfa}!"
         if user_data.empty:
-            return render_template('prediction_output.html', tables=[], titles=[''], output=nfa)
+            return render_template('prediction_output.html', tables=[], titles=[''], output=nfa, model_says = message)
         else:
-            return render_template('prediction_output.html', tables=[user_data.to_html()], titles=[''], output=nfa)
+            return render_template('prediction_output.html', tables=[user_data.to_html()], titles=[''], output=nfa, model_says = message)
     else:
         fa = 'Fraudulent Activity'
+        message = f"The Model is {positive_prob:.2%} sure that it is {fa}!"
         if user_data.empty:
-            return render_template("prediction_output.html", tables=[], titles=[''], output=fa)
+            return render_template("prediction_output.html", tables=[], titles=[''], output=fa, model_says = message)
         else:
-            return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''], output=fa)
+            return render_template("prediction_output.html", tables=[user_data.to_html()], titles=[''], output=fa, model_says = message)
