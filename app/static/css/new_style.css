@@ -64,6 +64,20 @@
     text-transform: uppercase;
     color: #fff
   }
+
+  .title-2 {
+    display: block;
+    font-family: sans-serif;
+    font-size: 0.900rem;
+    line-height: 1.25rem;
+    color: #fff
+  }
+
+  .title-3 {
+    font-family: sans-serif;
+    font-size: 12;
+    color: #fff
+  }
   
   .price-container {
     margin-top: 10px;
@@ -138,3 +152,257 @@
     border-radius: 10px;
   }
 
+  .post-card {
+    width: 800px;
+    background: lightgrey;
+    background-color: rgb(24 27 32);
+    border: 1px solid rgb(84 90 106);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+  
+  .avatar {
+    height: 30px;
+    width: 90px;
+    border: 2px solid rgb(255, 255, 255);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  .title-1 {
+    font-size: 36px;
+    line-height: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: all .35s ease-in;
+  }
+  
+  .datetime {
+    font-size: 12px;
+    color: rgb(247, 249, 255);
+    margin: 10px 0;
+  }
+  
+  .comment-like {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2px 0;
+  }
+  
+  .comment-like span {
+    cursor: pointer;
+    height: 40px;
+    width: 50px;
+    padding: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all .15s ease;
+  }
+  
+  .comment-like span:hover {
+    background-color: rgba(12, 12, 12, );
+  }
+  
+  .comment-like span svg {
+    fill: rgb(12, 255, 255);
+    margin-right: 2px;
+  }
+
+  .container-covered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card_box-covered {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 70px;
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    background: linear-gradient(520deg, rgba(40, 159, 87, 0.623) 0%, rgb(31, 31, 31) 100%);
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .card_box-covered-2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 70px;
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    background: linear-gradient(520deg, rgba(226, 80, 80, 0.838) 0%, rgb(182, 7, 7) 100%);
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .card_box-covered-3 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 70px;
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    background: linear-gradient(520deg, rgba(0, 0, 0, 0.623) 0%, rgb(86, 2, 101) 100%);
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .card_box-covered:hover {
+    transform: scale(0.8);
+  }
+
+  .card_box-covered-2:hover {
+    transform: scale(0.8);
+  }
+
+  .card_box-covered-3:hover {
+    transform: scale(0.8);
+  }
+  
+  .card_box-covered span {
+    position: absolute;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card_box-covered-2 span {
+    position: absolute;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card_box-covered-3 span {
+    position: absolute;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card_box-covered span::before {
+    content: 'XBNet V1.5';
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background-image: linear-gradient(45deg, #ff6547 0%, #ffb144  51%, #ff7053  100%);
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.23);
+  }
+  
+  .card_box-covered-2 span::before {
+    content: 'XBNet V2.0';
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background-image: linear-gradient(45deg, #ff6547 0%, #ffb144  51%, #ff7053  100%);
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.23);
+  }
+
+  .card_box-covered-3 span::before {
+    content: 'GOTHAM V1.0';
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background-image: linear-gradient(45deg, #ff6547 0%, #ffb144  51%, #ff7053  100%);
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.23);
+  }
+
+  .card_box-covered span::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    z-index: -1;
+    box-shadow: 140px -140px #cc3f47;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  }
+
+  .card_box-covered-2 span::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    z-index: -1;
+    box-shadow: 140px -140px #cc3f47;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  }
+
+  .card_box-covered-3 span::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    z-index: -1;
+    box-shadow: 140px -140px #cc3f47;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  }
