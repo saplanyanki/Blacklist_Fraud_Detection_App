@@ -60,7 +60,7 @@
                                   </a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="access_models.html">
+                                  <a class="nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                                     <span class="ml-2">Access Models</span>
                                   </a>
@@ -72,55 +72,9 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#">Home</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Overview</li>
+                              <li class="breadcrumb-item active" aria-current="page">Access Models</li>
                             </ol>
                         </nav>
-                        <h1 class="h2">My Results</h1>
-                        <br><br>
-                        
-                        <!-- img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}"-->
-                        <br><br>
-                        <style>
-                          table {
-                            border-collapse: collapse;
-                            margin: auto;
-                            width: 100%;
-                            border: 1px solid black;
-                          }
-                          th, td {
-                            border: 1px solid black;
-                            padding: 8px;
-                            text-align: center;
-                          }
-                          th {
-                            background-color: lightgray;
-                          }
-                      </style>
-                        <div align="center">
-                            <table>
-                                <h1>
-                                    <h2>Loaded Data</h2>
-                                    <br><br>
-                                    {% for table in tables %}
-                                    <h2>{{titles[loop.index]}}</h2>                            
-                                    {{ table|safe }}
-                                    {% endfor %}
-                                    <br><br>
-                                    <h2>Fraud Detection Results</h2>
-                                </h1>
-                            </table>
-                        </div>
-                        <div class="card">
-                          <h5 class="card-header">Model Name: XBNet V2.0</h5>
-                          <div class="card-body">
-                            <h5 class="card-title">Prediction: {{ output }}</h5>
-                            <h5 class="card-title">Accuracy: {{ model_says }}</h5>
-                            <p class="card-text">
-                              <script> document.write(new Date().toLocaleDateString()); </script>
-                            </p>
-                            <!-- <p class="card-text text-success">18.2% increase since last month</p> -->
-                          </div>
-                        </div>
                       <br><br>
                       <h2>Checkout Blacklist's Premium Packages</h2>
                       <br><br>
