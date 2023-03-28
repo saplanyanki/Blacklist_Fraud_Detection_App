@@ -2,25 +2,14 @@ import os
 import sys
 sys.path.append("XBNet")
 
-from flask import Blueprint, current_app, render_template, request, flash
-from flask_login import login_required, current_user
 from . import db
-from flask import session
-import torch.nn.functional as F
-import torch
-
-###
-from flask import Flask, request, render_template, url_for, redirect
-from flask_bcrypt import Bcrypt
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
-from XBNet.training_utils import predict, training, predict_proba
-import pandas as pd
+from flask import Blueprint, current_app, render_template, request, redirect, url_for
+from flask_login import login_required
 import joblib
-###
+import pandas as pd
+import torch
+import torch.nn.functional as F
+from XBNet.training_utils import predict, predict_proba
 
 
 views = Blueprint('views', __name__)
