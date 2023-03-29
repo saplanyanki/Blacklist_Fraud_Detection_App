@@ -142,7 +142,7 @@
                       
                   }
                   #table-wrapper table * {
-                    background:yellow;
+                    /* background:yellow; */
                     color:black;
                   }
                   #table-wrapper table thead th .text {
@@ -154,20 +154,20 @@
                     border:1px solid red;
                   }
               </style>
-                <div align="center">
+              <h2>Loaded Data</h2>
+                <div id="table-wrapper">
+                  <div id="table-scroll">
                     <table>
                         <h1>
-                            <h2>Loaded Data</h2>
-                            <br><br>
-                            {% for table in tables %}
-                            <h2>{{titles[loop.index]}}</h2>                            
-                            {{ table|safe }}
-                            {% endfor %}
-                            <br><br>
-                            <h2>Fraud Detection Results</h2>
+                          {% for table in tables %}
+                          <h2>{{titles[loop.index]}}</h2>                            
+                          {{ table|safe }}
+                          {% endfor %}
                         </h1>
                     </table>
+                  </div>
                 </div>
+                <h2>Fraud Detection Results</h2>
                 <div class="card">
                   <h5 class="card-header">Model Name: XBNet V2.0</h5>
                   <div class="card-body">
