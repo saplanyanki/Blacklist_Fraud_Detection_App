@@ -147,3 +147,9 @@ def my_documents():
             return redirect(url_for('views.prediction_output'))
 
     return render_template('my_documents.html', recent_file=most_recent_user_data)
+
+@views.route('/marketplace.html')
+@login_required
+def marketplace():
+
+    return render_template('/marketplace.html')
