@@ -54,7 +54,7 @@ def upload_page():
 
         # If a file is selected
         if file:
-
+            filename = file.filename
             # Save the file to the server
             file.save(os.path.join(current_app.instance_path, "user_data.csv"))
 
@@ -118,5 +118,38 @@ def prediction_output():
 @views.route('/access_models.html')
 @login_required
 def access_models():
-    # code to render the access_models.html template
+
     return render_template('access_models.html')
+
+@views.route('/data_analysis.html')
+@login_required
+def data_analysis():
+
+    return render_template('/data_analysis.html')
+
+@views.route('/my_documents.html')
+@login_required
+def my_documents():
+    all_file_names = os.listdir(current_app.instance_path)
+    csv_file_names = [f for f in all_file_names if f.endswith('.csv')]
+    most_recent_user_data = csv_file_names[0]
+
+    if request.method == 'POST':
+
+        # Get a new file from the form request
+        file = request.files['file']
+
+        if file:
+
+            # Save the file to the server
+            file.save(os.path.join(current_app.instance_path, "user_data_new.csv"))
+
+            return redirect(url_for('views.prediction_output'))
+
+    return render_template('my_documents.html', recent_file=most_recent_user_data)
+
+@views.route('/marketplace.html')
+@login_required
+def marketplace():
+
+    return render_template('/marketplace.html')

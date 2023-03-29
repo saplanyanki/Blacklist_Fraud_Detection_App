@@ -45,25 +45,25 @@
                 <div class="position-sticky pt-md-5">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">
+                          <a class="nav-link active" aria-current="page" href="/prediction_output/table">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             <span class="ml-2">Dashboard</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="/my_documents.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                             <span class="ml-2">My Documents</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" href="/data_analysis.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                             <span class="ml-2">Data Analysis</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="access_models.html">
+                          <a class="nav-link" href="/access_models.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                             <span class="ml-2">Access Models</span>
                           </a>
@@ -80,7 +80,38 @@
                 </nav>
                 <h1 class="h2">My Results</h1>
                 <br><br>
-                
+                <div class="notifications-container">
+                  <div class="success">
+                    <div class="flex">
+                      <div class="flex-shrink-0">
+                        
+                        <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <div class="success-prompt-wrap">
+                        <p class="success-prompt-heading">Job Completed!
+                        </p><div class="success-prompt-prompt" style="text-align: justify;">
+                          <p>Your Credit Card dataset has been processed successfuly! You can now see your results below with the selected model and gain insights about our prediction system. This also means that you can now try other models, access your old data or upload a new one, get your data analysis, and access other premium features!</p>
+                        </div>
+                          <div class="success-button-container">
+                            <button type="button" class="success-button-main" onclick="redirectToModels()">Change Models</button>
+                            <script>
+                            function redirectToModels() {
+                              window.location.href = "/my_documents.html";
+                            }
+                            </script>
+                            <button type="button" class="success-button-secondary" onclick="closeWindow()">Close</button>
+                            <script>
+                            function closeWindow() {
+                                window.close();
+                            }
+                            </script>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}"-->
                 <br><br>
                 <style>
@@ -208,9 +239,12 @@
                     </ul>
                   </div>
                   <div class="button-container">
-                    <button type="button">
-                      Buy Now
-                    </button>
+                    <button type="button" onclick="redirectToMarket()">Buy Now</button>
+                    <script>
+                    function redirectToMarket() {
+                      window.location.href = "/marketplace.html";
+                    }
+                    </script>
                   </div>
                 </div>
                 </div>
@@ -218,7 +252,7 @@
                   <div class="pack-container2">
                     <div class="header">
                       <p class="title">
-                        Blacklist Arcadia
+                        Blacklist Professional
                       </p>
                       <div class="price-container">
                         <span>$</span>29.99
@@ -254,7 +288,7 @@
                             </svg>
                           </span>
                           <p>
-                            Family Access
+                            Multiple Access
                           </p>
                         </li>
                         <li class="list">
@@ -270,9 +304,7 @@
                       </ul>
                     </div>
                     <div class="button-container">
-                      <button type="button">
-                        Buy Now
-                      </button>
+                      <button type="button" onclick="redirectToMarket()">Buy Now</button>
                     </div>
                   </div>
                 </div>
@@ -280,7 +312,7 @@
                   <div class="pack-container3">
                     <div class="header">
                       <p class="title">
-                        Blacklist Gotham
+                        Blacklist Infinity
                       </p>
                       <div class="price-container">
                         <span>$</span>59.99
@@ -296,7 +328,7 @@
                             </svg>
                           </span>
                           <p>
-                            Access to All Models
+                            Access to Gotham + Others
                           </p>
                         </li>
                         <li class="list">
@@ -316,7 +348,7 @@
                             </svg>
                           </span>
                           <p>
-                            VIP Access
+                            Unlimited Access
                           </p>
                         </li>
                         <li class="list">
@@ -332,9 +364,7 @@
                       </ul>
                     </div>
                     <div class="button-container">
-                      <button type="button">
-                        Buy Now
-                      </button>
+                      <button type="button" onclick="redirectToMarket()">Buy Now</button>
                     </div>
                   </div>
                 </div>
