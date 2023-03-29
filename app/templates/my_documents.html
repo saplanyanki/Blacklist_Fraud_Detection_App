@@ -72,42 +72,11 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#">Home</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Access Models</li>
+                              <li class="breadcrumb-item active" aria-current="page">My Documents</li>
                             </ol>
                         </nav>
                       <br><br>
-                        <div class="post-card" style="margin: 0 auto;">
-                            <div class="avatar"><img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}"></div>
-                            <a class="title-1">Why Model Selection is Crucial?</a>
-                            <br><br>
-                            <p class="title-2" style="text-align: justify;">Model selection is a crucial step in fraud prediction. This is because different models are designed to work with different types of data and to address specific challenges or limitations of the data. In our case, we have developed three different models: V2, V1.5, and Gotham, each with its own unique features and capabilities.</p>
-                            <p class="title-2" style="text-align: justify;">The V2 model is designed to work with data that includes vendor category and geographical information. This model is trained on a fully feature engineered dataset that includes one hot encoding of states, zip codes, genders, and purchase types, among other things. The V2 model achieves 94% accuracy on both fraud and non-fraud classes separately and is particularly effective in identifying fraudulent transactions based on location and vendor type.</p>
-                            <p class="title-2" style="text-align: justify;">On the other hand, the V1.5 model is designed to work with highly anonymized datasets, where most of the information is PCA'd or hidden. The main goal of this model is to predict on datasets that only include categories like amount, while all other categories are PCA'd values or unknown. This model is particularly useful in situations where data privacy and anonymity are of utmost importance.</p>
-                            <p class="title-2" style="text-align: justify;">Finally, the Gotham model is designed to predict on a large dataset that contains categorical, geographical, anonymized, and text data. This model is still in the making but is intended to be modeled after the V2 model, with more complex architecture, including text and ratings data. The goal of this model is to be able to understand more information from text compared to the V2 model and make more in-depth credit card fraud predictions.</p>
-                            <p class="title-2" style="text-align: justify;">Choosing the appropriate model for a given dataset is important to ensure that our clients receive the most accurate and reliable predictions possible. By carefully considering the type of data available and the specific challenges associated with that data, we can select the model that is best suited to the task at hand and provide our clients with the best possible results.</p>
-                            <span class="datetime">1 min to read</span>
-                        </div>
-                        <br><br>
-                        <h2>Available Blacklist Models</h2>
-                        <br><br>
-                        <div class="container-covered">
-                            <div class="card_box-covered">
-                                <span style="text-align: center; color: white; font-size: 18px;">
-                                    <br><br><br><br><br> WAITING
-                                </span>
-                            </div>
-                            <div class="card_box-covered-2">
-                                <span style="text-align: center; color: white; font-size: 18px;">
-                                    <br><br><br><br><br> USING NOW
-                                </span>
-                            </div>
-                            <div class="card_box-covered-3">
-                                <span style="text-align: center; color: white; font-size: 18px;">
-                                    <br><br><br><br><br> LOCKED
-                                </span>
-                            </div>
-                        </div>
-                        <br><br>
+                        
                         <h2>Checkout Blacklist's Premium Packages</h2>
                         <br><br>
                         <div class="card-container">

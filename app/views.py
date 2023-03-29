@@ -120,3 +120,15 @@ def prediction_output():
 def access_models():
     # code to render the access_models.html template
     return render_template('access_models.html')
+
+@views.route('/data_analysis.html')
+@login_required
+def data_analysis():
+    # code to render the access_models.html template
+    return render_template('/data_analysis.html')
+
+@views.route('/my_documents.html')
+@login_required
+def my_documents():
+    # code to render the access_models.html template
+    return render_template('my_documents.html')
