@@ -127,22 +127,31 @@ def access_models():
 def data_analysis():
     # Load the file using pandas
     X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
+    big_data = pd.read_csv(os.path.join(current_app.instance_path, "bigdata.csv"))
 
     # Unpickle the classifier
     get_model = joblib.load(os.path.join(current_app.instance_path, "v2.pkl"))
     all_file_names = os.listdir(current_app.instance_path)
     pkl_file_names = [f for f in all_file_names if f.endswith('.pkl')]
     most_recent_pkl_data = pkl_file_names[0]
+
+    avg_amt_by_category_1 = big_data.groupby(['Essentials', 'Leisure', 'Wellness', 'Other'])['amt'].mean().reset_index()
+    user_spending_1 = X['amt'].sum()
+    print(avg_amt_by_category_1)
+    print(user_spending_1)
+
     # Get the prediction
     prediction = predict(get_model, X.to_numpy()[0,:])
     print(prediction)
 
+    X['is_fraud'] = predict(get_model, X.to_numpy()[0,:])
+
     if prediction == 1:
         res = 'Non-Fraudulent Activity'
-        return render_template('/data_analysis.html', model_name= most_recent_pkl_data, res = res)
+        return render_template('/data_analysis.html', model_name= most_recent_pkl_data, res = res, bigd = big_data, usr_d = X, user_spending = user_spending_1, avg_amt_by_category = avg_amt_by_category_1)
     else:
         res = 'Fraudulent Activity'
-        return render_template('/data_analysis.html', model_name= most_recent_pkl_data, res = res)
+        return render_template('/data_analysis.html', model_name= most_recent_pkl_data, res = res, bigd = big_data, usr_d = X, user_spending = user_spending_1, avg_amt_by_category = avg_amt_by_category_1)
 
 
 @views.route('/my_documents.html')

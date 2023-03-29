@@ -4,7 +4,10 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href="static/assets/favicon.jpg" rel="icon">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/new_style.css') }}"
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/new_style.css') }}">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.plot.ly/plotly-latest.min.css">
+        
     </head>
     
     <div class="container", style="text-align: center;">
@@ -195,193 +198,226 @@
                         </div>
                         <br><br>
                         <br><br>                       
-                        <h2>Your Graphs</h2>
-                    <br><br>    
-                    <br><br>
-                    <h2>Checkout Blacklist's Premium Packages</h2>
-                    <br><br>
-                    <div class="card-container">
-                        <div class="card">
-                        <div class="pack-container">
-                        <div class="header">
-                            <p class="title">
-                            Blacklist Starter
-                            </p>
-                            <div class="price-container">
-                            <span>$</span>9.99
-                            <span>/mo</span>
-                            </div>
-                        </div>
-                        <div>
-                            <ul class="lists">
-                            <li class="list">
-                                <span>
-                                <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                </svg>
-                                </span>
-                                <p>
-                                Access to XBNet V1.5
-                                </p>
-                            </li>
-                            <li class="list">
-                                <span>
-                                <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                </svg>
-                                </span>
-                                <p>
-                                25 Predictions
-                                </p>
-                            </li>
-                            <li class="list">
-                                <span>
-                                <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                </svg>
-                                </span>
-                                <p>
-                                Single User Access
-                                </p>
-                            </li>
-                            <li class="list">
-                                <span>
-                                <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                </svg>
-                                </span>
-                                <p>
-                                24 Hour Tech Support
-                                </p>
-                            </li>
-                            </ul>
-                        </div>
-                        <div class="button-container">
-                            <button type="button" onclick="redirectToMarket()">Buy Now</button>
-                        </div>
-                        </div>
-                        </div>
-                        <div class="card">
-                        <div class="pack-container2">
+                        <h2>Blacklist <span style="color: orange; font-weight: bold;">Graphs + / -</span></h2>
+                        <div id="graph"></div>
+                        <script>
+                            var avg_amt_by_category = {{ avg_amt_by_category.to_dict(orient="records")|tojson }};
+                            var user_spending = {{ user_spending }};
+
+                            // Extract the category names
+                            var categories = Object.keys(avg_amt_by_category[0]).filter(function(k) { return k !== "amt"; });
+
+                            // Create a bar chart with the data
+                            var chart = Plotly.newPlot('graph', [{
+                                x: categories,
+                                y: avg_amt_by_category.map(function(row) { return row['amt']; }),
+                                type: 'bar',
+                                name: 'Average spending'
+                            },
+                            {
+                                x: categories,
+                                y: [user_spending, 0, 0, 0],
+                                type: 'bar',
+                                name: 'User spending',
+                                marker: {
+                                    color: 'orange'
+                                }
+                            }]);
+
+                            // Update the chart layout
+                            chart.updateLayout({
+                                title: 'User spending vs. average spending by category',
+                                barmode: 'group'
+                            });
+                        </script>
+                        <br><br>
+                        
+                        <br><br>
+                        <br><br>
+                        <h2>Checkout Blacklist's Premium Packages</h2>
+                        <br><br>
+                        <div class="card-container">
+                            <div class="card">
+                            <div class="pack-container">
                             <div class="header">
-                            <p class="title">
-                                Blacklist Professional
-                            </p>
-                            <div class="price-container">
-                                <span>$</span>29.99
+                                <p class="title">
+                                Blacklist Starter
+                                </p>
+                                <div class="price-container">
+                                <span>$</span>9.99
                                 <span>/mo</span>
-                            </div>
+                                </div>
                             </div>
                             <div>
-                            <ul class="lists">
+                                <ul class="lists">
                                 <li class="list">
-                                <span>
+                                    <span>
                                     <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
                                     </svg>
-                                </span>
-                                <p>
-                                    Access to XBNet V2.0
-                                </p>
+                                    </span>
+                                    <p>
+                                    Access to XBNet V1.5
+                                    </p>
                                 </li>
                                 <li class="list">
-                                <span>
+                                    <span>
                                     <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
                                     </svg>
-                                </span>
-                                <p>
-                                    75 Predictions
-                                </p>
+                                    </span>
+                                    <p>
+                                    25 Predictions
+                                    </p>
                                 </li>
                                 <li class="list">
-                                <span>
+                                    <span>
                                     <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
                                     </svg>
-                                </span>
-                                <p>
-                                    Multiple Access
-                                </p>
+                                    </span>
+                                    <p>
+                                    Single User Access
+                                    </p>
                                 </li>
                                 <li class="list">
-                                <span>
+                                    <span>
                                     <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
                                     </svg>
-                                </span>
-                                <p>
+                                    </span>
+                                    <p>
                                     24 Hour Tech Support
-                                </p>
+                                    </p>
                                 </li>
-                            </ul>
+                                </ul>
                             </div>
                             <div class="button-container">
                                 <button type="button" onclick="redirectToMarket()">Buy Now</button>
                             </div>
-                        </div>
-                        </div>
-                        <div class="card">
-                        <div class="pack-container3">
-                            <div class="header">
-                            <p class="title">
-                                Blacklist Infinity
-                            </p>
-                            <div class="price-container">
-                                <span>$</span>59.99
-                                <span>/mo</span>
                             </div>
                             </div>
-                            <div>
-                            <ul class="lists">
-                                <li class="list">
-                                <span>
-                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                    </svg>
-                                </span>
-                                <p>
-                                    Access to Gotham + Others
+                            <div class="card">
+                            <div class="pack-container2">
+                                <div class="header">
+                                <p class="title">
+                                    Blacklist Professional
                                 </p>
-                                </li>
-                                <li class="list">
-                                <span>
-                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                    </svg>
-                                </span>
-                                <p>
-                                    Unlimited Predictions
-                                </p>
-                                </li>
-                                <li class="list">
-                                <span>
-                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                    </svg>
-                                </span>
-                                <p>
-                                    Unlimited Access
-                                </p>
-                                </li>
-                                <li class="list">
-                                <span>
-                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
-                                    </svg>
-                                </span>
-                                <p>
-                                    Live Tech Support
-                                </p>
-                                </li>
-                            </ul>
+                                <div class="price-container">
+                                    <span>$</span>29.99
+                                    <span>/mo</span>
+                                </div>
+                                </div>
+                                <div>
+                                <ul class="lists">
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Access to XBNet V2.0
+                                    </p>
+                                    </li>
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        75 Predictions
+                                    </p>
+                                    </li>
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Multiple Access
+                                    </p>
+                                    </li>
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        24 Hour Tech Support
+                                    </p>
+                                    </li>
+                                </ul>
+                                </div>
+                                <div class="button-container">
+                                    <button type="button" onclick="redirectToMarket()">Buy Now</button>
+                                </div>
                             </div>
-                            <div class="button-container">
-                                <button type="button" onclick="redirectToMarket()">Buy Now</button>
+                            </div>
+                            <div class="card">
+                            <div class="pack-container3">
+                                <div class="header">
+                                <p class="title">
+                                    Blacklist Infinity
+                                </p>
+                                <div class="price-container">
+                                    <span>$</span>59.99
+                                    <span>/mo</span>
+                                </div>
+                                </div>
+                                <div>
+                                <ul class="lists">
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Access to Gotham + Others
+                                    </p>
+                                    </li>
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Unlimited Predictions
+                                    </p>
+                                    </li>
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Unlimited Access
+                                    </p>
+                                    </li>
+                                    <li class="list">
+                                    <span>
+                                        <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Live Tech Support
+                                    </p>
+                                    </li>
+                                </ul>
+                                </div>
+                                <div class="button-container">
+                                    <button type="button" onclick="redirectToMarket()">Buy Now</button>
+                                </div>
+                            </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </main>
                 </div>
             </div>
