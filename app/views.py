@@ -121,11 +121,29 @@ def access_models():
 
     return render_template('access_models.html')
 
+
 @views.route('/data_analysis.html')
 @login_required
 def data_analysis():
+    # Load the file using pandas
+    X = pd.read_csv(os.path.join(current_app.instance_path, "user_data.csv"))
 
-    return render_template('/data_analysis.html')
+    # Unpickle the classifier
+    get_model = joblib.load(os.path.join(current_app.instance_path, "v2.pkl"))
+    all_file_names = os.listdir(current_app.instance_path)
+    pkl_file_names = [f for f in all_file_names if f.endswith('.pkl')]
+    most_recent_pkl_data = pkl_file_names[0]
+    # Get the prediction
+    prediction = predict(get_model, X.to_numpy()[0,:])
+    print(prediction)
+
+    if prediction == 1:
+        res = 'Non-Fraudulent Activity'
+        return render_template('/data_analysis.html', model_name= most_recent_pkl_data, res = res)
+    else:
+        res = 'Fraudulent Activity'
+        return render_template('/data_analysis.html', model_name= most_recent_pkl_data, res = res)
+
 
 @views.route('/my_documents.html')
 @login_required
