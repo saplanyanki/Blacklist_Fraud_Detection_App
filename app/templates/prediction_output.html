@@ -80,7 +80,38 @@
                 </nav>
                 <h1 class="h2">My Results</h1>
                 <br><br>
-                
+                <div class="notifications-container">
+                  <div class="success">
+                    <div class="flex">
+                      <div class="flex-shrink-0">
+                        
+                        <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <div class="success-prompt-wrap">
+                        <p class="success-prompt-heading">Job Completed!
+                        </p><div class="success-prompt-prompt">
+                          <p>Your Credit Card dataset has been processed successfuly! You can now see your results below with the selected model and gain insights about our prediction system. This also means that you can try other models, access your old data or upload a new one, get your data analysis, and access other premium features!</p>
+                        </div>
+                          <div class="success-button-container">
+                            <button type="button" class="success-button-main" onclick="redirectToModels()">Change Models</button>
+                            <script>
+                            function redirectToModels() {
+                              window.location.href = "/my_documents.html";
+                            }
+                            </script>
+                            <button type="button" class="success-button-secondary" onclick="closeWindow()">Close</button>
+                            <script>
+                            function closeWindow() {
+                                window.close();
+                            }
+                            </script>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- img src="{{ url_for('static', filename='../static/assets/BLACKLIST.gif') }}"-->
                 <br><br>
                 <style>
