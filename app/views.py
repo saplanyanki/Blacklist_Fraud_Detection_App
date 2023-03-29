@@ -159,7 +159,7 @@ def data_analysis():
 def my_documents():
     all_file_names = os.listdir(current_app.instance_path)
     csv_file_names = [f for f in all_file_names if f.endswith('.csv')]
-    most_recent_user_data = csv_file_names[0]
+    most_recent_user_data = csv_file_names[1]
 
     if request.method == 'POST':
 
