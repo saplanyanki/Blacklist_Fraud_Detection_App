@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href="static/assets/favicon.jpg" rel="icon">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/new_style.css') }}"
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/new_style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/login_upload_page.css') }}">
     </head>
     
     <div class="container", style="text-align: center;">
@@ -75,8 +76,123 @@
                               <li class="breadcrumb-item active" aria-current="page">My Documents</li>
                             </ol>
                         </nav>
-                      <br><br>
-                        
+                        <br><br>
+                        <h2 style="font-family: Segoe UI"> Available Blacklist Models</h2>
+                        <br><br>
+                        <div class="main">
+                            <div class="currentplaying">
+                                <svg height="50px" width="50px" viewBox="0 0 64 64">
+                                    <image xlink:href="{{ url_for('static', filename='../static/assets/favicon.jpg') }}" width="100%" height="100%" />
+                                </svg>
+                              <p class="heading" style="margin-left: 20px;">Currently Running Models</p>
+                            </div>
+                            <div class="loader-new">
+                              <div class="models">
+                                <p class="name">XBNet V2.0</p>
+                                <p class="descriptions">Currently Running - Available</p>
+                              </div>
+                              <div class="cover"></div>
+                              <div class="loading">
+                                <div class="load"></div>
+                                <div class="load"></div>
+                                <div class="load"></div>
+                                <div class="load"></div>
+                              </div>
+                            </div>
+                            <div class="loader-new">
+                              <div class="models">
+                                <p class="name">XBNet V1.5</p>
+                                <p class="descriptions">Not Running - Available</p>
+                              </div>
+                              <div class="cover-2"></div>
+                              <div class="play"></div>
+                            </div>
+                            <div class="loader-new">
+                              <div class="models">
+                                <p class="name">Gotham V1.0</p>
+                                <p class="descriptions">Undergoing Maintenance - Not Available</p>
+                              </div>
+                              <div class="cover-3"></div>
+                              <div class="play"></div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <h2 style="font-family: Segoe UI"> Uploaded Documents</h2>
+                        <br><br>
+                        <div class="main">
+                            <div class="currentplaying">
+                              <p class="heading" style="margin-left: 20px;">Available CSV Files</p>
+                            </div>
+                            <div class="loader-new">
+                              <div class="models">
+                                <p class="name">{{ recent_file }}</p>
+                                <p class="descriptions">Currently Selected</p>
+                              </div>
+                              <div class="filecover"></div>
+                              <div class="loading">
+                                <div class="load"></div>
+                                <div class="load"></div>
+                                <div class="load"></div>
+                                <div class="load"></div>
+                              </div>
+                            </div>
+                            <div class="loader-new">
+                              <div class="models">
+                                <p class="name">February_Creditcard_Data.csv</p>
+                                <p class="descriptions">Not Selected - Available</p>
+                              </div>
+                              <div class="filecover-2"></div>
+                              <div class="play"></div>
+                            </div>
+                            <div class="loader-new">
+                              <div class="models">
+                                <p class="name">January_Creditcard_Data.csv</p>
+                                <p class="descriptions">Not Selected - Available</p>
+                              </div>
+                              <div class="filecover-3"></div>
+                              <div class="play"></div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <body class="bg-nav" style="text-align: center;">
+                            <h2 style="font-family: Segoe UI"> Upload A New CSV File</h2>
+                            <br><br>
+                            <input type="file" id="inp" accept=".csv"/>
+                            <br><br>
+                            <br><br>
+                            <div class="container bg-nav" style="text-align: center;">
+                                    <button id="seeResultsButton" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;" disabled onclick="window.location.href='/prediction_output/table'"> See Results </button>
+                                    <script>
+                                      const fileInput = document.getElementById("inp");
+                                      const seeResultsButton = document.getElementById("seeResultsButton");
+                                        
+                                      fileInput.addEventListener("change", function() {
+                                        if (fileInput.files.length > 0) {
+                                          seeResultsButton.disabled = false;
+                                        }
+                                      });
+                                        
+                                      seeResultsButton.addEventListener("click", function() {
+                                        const formData = new FormData();
+                                        formData.append("file", fileInput.files[0]);
+                                        
+                                        fetch("/my_documents.html", {
+                                          method: "POST",
+                                          body: formData
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                          console.log(data);
+                                          window.location.href = "/prediction_output/table";
+                                        })
+                                        .catch(error => {
+                                          console.error(error);
+                                        });
+                                      });
+                                    </script>
+                            </div>
+                          </body>
+                        <br><br>
                         <h2>Checkout Blacklist's Premium Packages</h2>
                         <br><br>
                         <div class="card-container">
