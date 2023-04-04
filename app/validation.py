@@ -1,13 +1,15 @@
 import sys
 sys.path.append("XBNet")
+import os
 import torch
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from training_utils import training,predict
+from training_utils import training,predict,validate
 from models_xb import XBNETClassifier
 from run import run_XBNET
+from torch.optim.lr_scheduler import StepLR
 import joblib
 from imblearn.over_sampling import SMOTE
 
@@ -73,8 +75,6 @@ df = df.join(one_hot)
 df = df.drop('state', axis=1)
 #df.drop('zip', axis=1, inplace=True)
 
-# load data into a Pandas DataFrame
-df = df.iloc[0:40000, :]
 # split the data into features and target variable
 X = df.drop('is_fraud', axis=1)
 y = df['is_fraud']
@@ -90,6 +90,17 @@ cols = [col for col in df_smote.columns if col != 'is_fraud'] + ['is_fraud']
 df_smote = df_smote[cols]
 df_smote = df_smote.sample(frac=1, random_state=4)
 df_smote['amt'] = df_smote['amt'].round(1)
+
+df_smote = df_smote.iloc[0:20000, :]
+
 print(df_smote.is_fraud.value_counts())
 
-df_smote.to_csv('data.csv', index=False) # index=False to exclude the index column
+model = joblib.load("instance/v2.pkl")
+
+# Get the features and target variable
+X_test = df_smote.drop('is_fraud', axis=1)
+y_test = df_smote['is_fraud']
+
+y_pred = predict(model, X_test.to_numpy())
+print(y_pred)
+print(len(y_pred))

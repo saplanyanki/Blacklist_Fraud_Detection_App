@@ -78,8 +78,6 @@
                       <li class="breadcrumb-item active" aria-current="page">Overview</li>
                     </ol>
                 </nav>
-                <h1 class="h2">My Results</h1>
-                <br><br>
                 <div class="notifications-container">
                   <div class="success">
                     <div class="flex">
@@ -154,7 +152,7 @@
                     border:1px solid red;
                   }
               </style>
-              <h2>Loaded Data</h2>
+              <h2><span style="font-weight: bold;"> User Loaded Data </span></h2>
                 <div id="table-wrapper">
                   <div id="table-scroll">
                     <table>
@@ -167,19 +165,24 @@
                     </table>
                   </div>
                 </div>
+<<<<<<< HEAD
                 <br>
                 <h2>Fraud Detection Results</h2>
+=======
+                <h1><span style="font-weight: bold;"> Fraud Detection Results </span></h2>
+>>>>>>> 8b6b502c51fc958b5c7fcd9dd9e7d7e4d9d05e8c
                 <div class="card">
-                  <h5 class="card-header">Model Name: XBNet V2.0</h5>
+                  <h2 class="card-header">Current Model Name: <span style="color: green; font-weight: bold;">XBNet v2.0</span></h2>
                   <div class="card-body">
-                    <h5 class="card-title">Prediction: {{ output }}</h5>
-                    <h5 class="card-title">Accuracy: {{ model_says }}</h5>
-                    <p class="card-text">
+                    <h4 class="card-title"><span style="font-weight: bold;"> Prediction:</span> {{ output }}</h4>
+                    <h4 class="card-title"><span style="font-weight: bold;">Accuracy:</span> {{ model_says }}</h4>
+                    <h4 class="card-text"> <span style="font-weight: bold;">Today's Date:</span>
                       <script> document.write(new Date().toLocaleDateString()); </script>
-                    </p>
+                    </h4>
                     <!-- <p class="card-text text-success">18.2% increase since last month</p> -->
                   </div>
                 </div>
+                <br><br>
               <br><br>
               <h2>Checkout Blacklist's Premium Packages</h2>
               <br><br>
