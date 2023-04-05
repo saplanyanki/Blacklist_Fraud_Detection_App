@@ -26,4 +26,4 @@ validation_df = DataLoader(Data(val_x, val_y), batch_size=32)
 
 
 criterion = torch.nn.BCEWithLogitsLoss()
-validate(v3, validation_df, criterion, 5)
+validate(v3, validation_df, criterion, 5, True)
