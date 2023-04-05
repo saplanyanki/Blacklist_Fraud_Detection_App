@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/css/new_style.css" rel="stylesheet">
   <link href="../static/assets/favicon.jpg" rel="icon">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/css/login_upload_page.css') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
@@ -40,46 +41,10 @@
     </body>
     <body class="bg-nav" style="text-align: center;">
       <h2 style="font-family: Segoe UI"> Upload Your CSV File</h2>
-      <br>
-      <br>
+      <br><br>
       <input type="file" id="inp" accept=".csv"/>
       <div class="container bg-nav" style="text-align: center;">
-          <!-- <br><br>
-            <button onclick="previewFile()" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;">Preview File</button>
-            <br><br><br><br>
-              <table id="previewTable"></table>
-                <script>
-                  function previewFile() {
-                    const fileInput = document.getElementById("inp");
-                    const file = fileInput.files[0];
-              
-                    if (!file) {
-                      alert("No file selected.");
-                      return;
-                    }
-              
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                      const csvData = e.target.result;
-                      const lines = csvData.split("\n");
-                      const previewTable = document.getElementById("previewTable");
-                      previewTable.innerHTML = "";
-              
-                      for (let i = 0; i < lines.length; i++) {
-                      const line = lines[i].split(",");
-                      const row = previewTable.insertRow(-1);
-                          for (let j = 0; j < line.length; j++) {
-                          const cell = row.insertCell(-1);
-                          cell.innerHTML = line[j];
-                          }
-                      }
-                    };
-                    reader.readAsText(file);
-                  }
-                </script>
-              <br><br> -->
-              <button id="seeResultsButton" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;" disabled onclick="window.location.href='/prediction_output/table'"
-              > See Results </button>
+              <button id="seeResultsButton" class="btn-block btn-lg color center" style="height:50px; width:200px; font-size: 14px; font-family: Segoe UI;" disabled onclick="window.location.href='/prediction_output/table'"> See Results </button>
               <script>
                 const fileInput = document.getElementById("inp");
                 const seeResultsButton = document.getElementById("seeResultsButton");
@@ -108,6 +73,34 @@
                   });
                 });
               </script>
+              <br><br>
+              <br><br>
+              <div class="notifications-container">
+                <div class="success-upload-page">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      
+                      <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <div class="success-prompt-wrap">
+                      <p class="success-upload-prompt-heading">Job In Progress!
+                      </p><div class="success-upload-prompt" style="text-align: justify;">
+                        <p>Your Credit Card dataset is waiting to be uploaded. After a successful upload, you can see your results in the dashboard page and gain insights about our prediction system. You can also try out other models, access your old data or upload a new one, see your data analysis, and access many other premium features! If you want to access your older predictions and data, then you can click on the See Old CSV Results button and skip the upload page.</p>
+                      </div>
+                        <div class="success-button-container">
+                          <button type="button" class="success-upload-button-main" onclick="redirectToPred()">See Old CSV Results</button>
+                          <script>
+                          function redirectToPred() {
+                            window.location.href = "/prediction_output/table";
+                          }
+                          </script>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
       </div>
     </body>
 </html>

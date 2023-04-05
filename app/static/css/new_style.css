@@ -621,6 +621,12 @@
     border-radius: 0.375rem;
     background-color: rgb(147, 208, 178);
   }
+
+  .success-upload-page {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    background-color: rgb(222, 173, 14);
+  }
   
   .succes-svg {
     color: rgb(3, 3, 3);
@@ -637,9 +643,19 @@
     color: rgb(22 101 52);
   }
   
+  .success-upload-prompt-heading {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+  }
+
   .success-prompt-prompt {
     margin-top: 0.5rem;
     color: rgb(21 128 61);
+  }
+
+  .success-upload-prompt-prompt {
+    margin-top: 0.5rem;
+    color: rgb(0, 0, 0);
   }
   
   .success-button-container {
@@ -657,6 +673,20 @@
     padding-right: 0.5rem;
     background-color: #ECFDF5;
     color: rgb(22 101 52);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+    border-radius: 0.375rem;
+    border: none
+  }
+
+  .success-upload-button-main {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #ECFDF5;
+    color: rgb(0, 0, 0);
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: bold;
