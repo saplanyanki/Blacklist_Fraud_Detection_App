@@ -72,6 +72,7 @@ df = df.join(one_hot)
 #df = df.join(one_hot_m)
 df = df.drop('state', axis=1)
 #df.drop('zip', axis=1, inplace=True)
+print(len(df.index))
 
 # remove val data / sets of 4 - 5k
 val1 = df.iloc[0:5000, :]
@@ -82,7 +83,8 @@ val3 = df.iloc[10000:15000:, :]
 val3.to_csv('val3.csv', index=False)
 val4 = df.iloc[15000:20000:, :]
 val4.to_csv('val4.csv', index=False)
-
+val_large = df.iloc[80000:2800000, :]
+val_large.to_csv('val_large.csv', index=False)
 
 # load data into a Pandas DataFrame
 df = df.iloc[20000:80000, :]
