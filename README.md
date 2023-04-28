@@ -59,7 +59,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<img src="https://github.com/saplanyanki/DS340-440/blob/main/app/static/assets/BLACKLIST.gif](https://github.com/saplanyanki/DS340-440/blob/main/im1.png)" width="350" title="Blacklist Web">
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im1.png" width="350" title="Blacklist Web">
 
 Project:
 * The Blacklist web application is an innovative tool that uses the power of machine learning to detect and prevent credit card fraud. Our team has developed a custom model that employs various techniques to accurately classify fraudulent activity, providing users with a high level of security and peace of mind. The Blacklist architecture consists of three main components: the model, the backend, and the frontend. 
