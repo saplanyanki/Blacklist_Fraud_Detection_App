@@ -18,10 +18,11 @@
   <p align="center">
     @yankisaplan - @elifreedman
     <br />
-    <a href="https://github.com/saplanyanki/DS340-440/tree/main/sources"><strong>Explore the code »</strong></a>
+    <a href="https://github.com/saplanyanki/DS340-440/tree/main/app"><strong>Explore the App Code »</strong></a>
     <br />
+    <a href="https://github.com/saplanyanki/DS340-440/tree/main/XBNet"><strong>Explore the ML Code »</strong></a>
     <br />
-    <a href="">View Demo</a>
+    <a href="">View Demo - Not Available</a>
     ·
     <a href="https://github.com/saplanyanki/DS340-440/issues">Report Bug</a>
     ·
