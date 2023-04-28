@@ -143,11 +143,11 @@ Clone the repository and follow Prerequisites.
 
 * The user-friendly interface of our credit card fraud detection software allows users to easily navigate through various tabs to access information about the machine learning models in use. In particular, the My Documents tab provides users with the ability to select or view various Blacklist machine learning models, which have been specifically designed to enhance the accuracy and efficiency of our fraud detection system.
 
-In this tab, users can explore different models that are currently available or choose new ones to add to their repertoire. By selecting from a range of Blacklist models, users can be confident that their system is detecting and flagging any suspicious credit card activity, while minimizing the risk of false positives or negatives.
+* In this tab, users can explore different models that are currently available or choose new ones to add to their repertoire. By selecting from a range of Blacklist models, users can be confident that their system is detecting and flagging any suspicious credit card activity, while minimizing the risk of false positives or negatives.
 
-Moreover, the My Documents tab also enables users to keep track of the models they are currently using for credit card fraud detection. This feature provides an easy-to-read overview of the specific models that have been chosen, along with details about their performance and accuracy.
+* Moreover, the My Documents tab also enables users to keep track of the models they are currently using for credit card fraud detection. This feature provides an easy-to-read overview of the specific models that have been chosen, along with details about their performance and accuracy.
 
-Overall, the My Documents tab is an essential tool for users of our credit card fraud detection software. With its intuitive interface and comprehensive range of Blacklist machine learning models, it provides users with the tools they need to stay ahead of the curve when it comes to preventing fraudulent activity.
+* Overall, the My Documents tab is an essential tool for users of our credit card fraud detection software. With its intuitive interface and comprehensive range of Blacklist machine learning models, it provides users with the tools they need to stay ahead of the curve when it comes to preventing fraudulent activity.
 
 <img src="https://github.com/saplanyanki/DS340-440/blob/main/im5.png" width="800" title="Blacklist Web" align="center">
 
@@ -165,7 +165,7 @@ Overall, the My Documents tab is an essential tool for users of our credit card 
 
 * In addition to exploring their own data, users of our credit card fraud detection software can also gain insights by comparing their data to the general population data. This feature is available within the Data Analysis tab, where users can view how their data compares to the data used to train the machine learning models.
 
-By comparing their data to the general population data, users can identify any patterns or trends that may be unique to their data, and make any necessary adjustments to their system's settings or analysis methods. They can also identify any areas where their data may be underrepresented or overrepresented, which can help them to improve the accuracy and effectiveness of their fraud detection system.
+* By comparing their data to the general population data, users can identify any patterns or trends that may be unique to their data, and make any necessary adjustments to their system's settings or analysis methods. They can also identify any areas where their data may be underrepresented or overrepresented, which can help them to improve the accuracy and effectiveness of their fraud detection system.
 
 <img src="https://github.com/saplanyanki/DS340-440/blob/main/im9.png" width="800" title="Blacklist Web" align="center">
 
