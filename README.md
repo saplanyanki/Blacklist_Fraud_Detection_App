@@ -59,7 +59,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+<a href="https://drive.google.com/file/d/1KHQe--K_r6tSNYQp4saJtUHKjmFyD-pJ/view?usp=share_link"><img src="https://drive.google.com/file/d/1KHQe--K_r6tSNYQp4saJtUHKjmFyD-pJ/view?usp=share_link" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a>
 Project:
 * The Blacklist web application is an innovative tool that uses the power of machine learning to detect and prevent credit card fraud. Our team has developed a custom model that employs various techniques to accurately classify fraudulent activity, providing users with a high level of security and peace of mind. The Blacklist architecture consists of three main components: the model, the backend, and the frontend. 
 * The model is a supervised neural network that is enhanced by an XGBoost algorithm, which provides the most relevant features for accurate predictions. The Blacklist also uses the Python Flask module to connect the pre-trained model with the backend, enabling fast and efficient prediction of credit card data. 
@@ -133,7 +133,9 @@ Clone the repository and follow Prerequisites.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+* The process begins when the user navigates to our blacklist website. From there, they are able to either log into their previously created account, or to register for an account if they are a new user. When logging into a previously created account, the sign-in page will refresh if the user credentials are incorrect. If the credentials are correct, the user will be redirected to the prediction page. From the registration page, the user is prompted to fill out their name, email, and password. There are restrictions to the passwords a user may create. The password must be at least eight characters and must contain numbers and special characters for password security.Once on the prediction page, the user is able to upload a comma separated value (csv) file of their credit card statement. Once uploaded, the user is then redirected to the prediction dashboard page.Finally, when on the dashboard, the user is able to see whether or not there were fraudulent transactions on their credit card statement. They are also able to view various graphs pertaining to the level of fraud found on that statement. Lastly, the user is also able to select various models to process their data.
+
+*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
