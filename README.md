@@ -10,10 +10,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="https://github.com/saplanyanki/DS340-440/app/static/assets/BLACKLIST.gif" width="350" title="Blacklist Web App">
+  <img src="https://github.com/saplanyanki/DS340-440/app/static/assets/BLACKLIST.jpg" width="350" title="Blacklist Web App">
   </a>
 
-  <h3 align="center">Data Science Capstone Project at Penn State University</h3>
+  <h3 align="center">Data Science Capstone Project @ Penn State</h3>
 
   <p align="center">
     @yankisaplan - @elifreedman
@@ -164,8 +164,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * Research Paper 1 (Parent Paper): https://arxiv.org/pdf/2106.05239v3.pdf
 * Research Paper 2: https://journalofbigdata.springeropen.com/articles/10.1186/s40537-022-00573-8#Abs1
