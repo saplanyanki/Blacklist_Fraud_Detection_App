@@ -59,7 +59,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<a href="https://drive.google.com/file/d/1KHQe--K_r6tSNYQp4saJtUHKjmFyD-pJ/view?usp=share_link"><img src="https://drive.google.com/file/d/1KHQe--K_r6tSNYQp4saJtUHKjmFyD-pJ/view?usp=share_link" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a>
+<a href=src="https://github.com/saplanyanki/DS340-440/blob/main/im1.png"</a>
+
 Project:
 * The Blacklist web application is an innovative tool that uses the power of machine learning to detect and prevent credit card fraud. Our team has developed a custom model that employs various techniques to accurately classify fraudulent activity, providing users with a high level of security and peace of mind. The Blacklist architecture consists of three main components: the model, the backend, and the frontend. 
 * The model is a supervised neural network that is enhanced by an XGBoost algorithm, which provides the most relevant features for accurate predictions. The Blacklist also uses the Python Flask module to connect the pre-trained model with the backend, enabling fast and efficient prediction of credit card data. 
