@@ -1,4 +1,4 @@
-# Fraud Detection - DS340 & DS 440
+# Credit Card Fraud Detection Web Application - XGBoosted Neural Networks
  
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="https://github.com/saplanyanki/DS340-440/blob/main/assets/main.jpg" width="350" title="Fraud Detection">
+  <img src="https://github.com/saplanyanki/DS340-440/app/static/assets/BLACKLIST.gif" width="350" title="Blacklist Web App">
   </a>
 
   <h3 align="center">Data Science Capstone Project at Penn State University</h3>
@@ -61,9 +61,9 @@
 ## About The Project
 
 Project:
-* 1
-* 2
-* 3
+* The Blacklist web application is an innovative tool that uses the power of machine learning to detect and prevent credit card fraud. Our team has developed a custom model that employs various techniques to accurately classify fraudulent activity, providing users with a high level of security and peace of mind. The Blacklist architecture consists of three main components: the model, the backend, and the frontend. 
+* The model is a supervised neural network that is enhanced by an XGBoost algorithm, which provides the most relevant features for accurate predictions. The Blacklist also uses the Python Flask module to connect the pre-trained model with the backend, enabling fast and efficient prediction of credit card data. 
+* The frontend of the Blacklist is designed to be user-friendly and easy to navigate, making it accessible to users of all technical levels. The seamless integration of the model, backend, and frontend ensures that users receive predictions in just a couple of seconds and have a great experience using the application.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,18 +86,36 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-
+Clone the repository and follow Prerequisites.
 
 ### Prerequisites
 
-* Available Soon
+* Download Python Libraries Listed Below:
   ```sh
+  bcrypt==4.0.1
+  bootstrap-py==1.0.2
+  Flask==2.2.3
+  Flask-Bcrypt==1.0.1
+  Flask-Login==0.6.2
+  Flask-SQLAlchemy==3.0.3
+  Flask-WTF==1.1.1
+  joblib==1.2.0
+  numpy==1.22.0
+  pandas==1.5.3
+  SQLAlchemy==2.0.6
+  tensorflow==2.11.0
+  WTForms==3.0.1
+  XBNet==1.4.6
+  xgboost==1.7.3
+  torch
+  sklearn
+  os
+  pickle
+  tqdm
+  matplotlib
   ```
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Clone the repo
    ```sh
@@ -105,7 +123,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 2. Install packages
    ```sh
-   pip install
+   pip install everything in the requirements.txt
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -122,12 +140,12 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 
 <!-- ROADMAP -->
-## Roadmap
+## Project Roadmap
 
-- [ ] Research
-- [ ] Dashboard
-- [ ] Modeling
-- [ ] Testing
+- [x] Research
+- [x] Dashboard
+- [x] Modeling
+- [x] Testing
 
 See the [open issues](https://github.com/saplanyanki/DS340-440/issues) for a full list of proposed features (and known issues).
 
@@ -149,7 +167,18 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* RP1
+* Research Paper 1 (Parent Paper): https://arxiv.org/pdf/2106.05239v3.pdf
+* Research Paper 2: https://journalofbigdata.springeropen.com/articles/10.1186/s40537-022-00573-8#Abs1
+* Research Paper 3: https://bhooi.github.io/papers/birdnest_sdm16.pdf
+
+@misc{sarkar2021xbnet,
+      title={XBNet : An Extremely Boosted Neural Network}, 
+      author={Tushar Sarkar},
+      year={2021},
+      eprint={2106.05239},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
