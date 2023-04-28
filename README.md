@@ -133,16 +133,41 @@ Clone the repository and follow Prerequisites.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+* The process begins when the user navigates to our blacklist website. From there, they are able to either log into their previously created account, or to register for an account if they are a new user. When logging into a previously created account, the sign-in page will refresh if the user credentials are incorrect. If the credentials are correct, the user will be redirected to the prediction page. From the registration page, the user is prompted to fill out their name, email, and password. There are restrictions to the passwords a user may create. The password must be at least eight characters and must contain numbers and special characters for password security.Once on the prediction page, the user is able to upload a comma separated value (csv) file of their credit card statement. 
+
 <img src="https://github.com/saplanyanki/DS340-440/blob/main/im3.png" width="800" title="Blacklist Web" align="center">
 
-* The process begins when the user navigates to our blacklist website. From there, they are able to either log into their previously created account, or to register for an account if they are a new user. When logging into a previously created account, the sign-in page will refresh if the user credentials are incorrect. If the credentials are correct, the user will be redirected to the prediction page. From the registration page, the user is prompted to fill out their name, email, and password. There are restrictions to the passwords a user may create. The password must be at least eight characters and must contain numbers and special characters for password security.Once on the prediction page, the user is able to upload a comma separated value (csv) file of their credit card statement. Once uploaded, the user is then redirected to the prediction dashboard page.Finally, when on the dashboard, the user is able to see whether or not there were fraudulent transactions on their credit card statement. They are also able to view various graphs pertaining to the level of fraud found on that statement. Lastly, the user is also able to select various models to process their data.
+* Once uploaded, the user is then redirected to the prediction dashboard page. Finally, when on the dashboard, the user is able to see whether or not there were fraudulent transactions on their credit card statement. They are also able to view various graphs pertaining to the level of fraud found on that statement. Lastly, the user is also able to select various models to process their data.
 
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im4.png" width="800" title="Blacklist Web" align="center">
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im5.png" width="800" title="Blacklist Web" align="center">
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im6.png" width="800" title="Blacklist Web" align="center">
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im7.png" width="800" title="Blacklist Web" align="center">
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im8.png" width="800" title="Blacklist Web" align="center">
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im9.png" width="800" title="Blacklist Web" align="center">
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im4.png" width="800" title="Blacklist Web" align="center">
+
+* The user-friendly interface of our credit card fraud detection software allows users to easily navigate through various tabs to access information about the machine learning models in use. In particular, the My Documents tab provides users with the ability to select or view various Blacklist machine learning models, which have been specifically designed to enhance the accuracy and efficiency of our fraud detection system.
+
+In this tab, users can explore different models that are currently available or choose new ones to add to their repertoire. By selecting from a range of Blacklist models, users can be confident that their system is detecting and flagging any suspicious credit card activity, while minimizing the risk of false positives or negatives.
+
+Moreover, the My Documents tab also enables users to keep track of the models they are currently using for credit card fraud detection. This feature provides an easy-to-read overview of the specific models that have been chosen, along with details about their performance and accuracy.
+
+Overall, the My Documents tab is an essential tool for users of our credit card fraud detection software. With its intuitive interface and comprehensive range of Blacklist machine learning models, it provides users with the tools they need to stay ahead of the curve when it comes to preventing fraudulent activity.
+
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im5.png" width="800" title="Blacklist Web" align="center">
+
+* In addition to being able to select and view Blacklist machine learning models, our credit card fraud detection software also allows users to keep track of the files they have uploaded for analysis. This feature is available within the My Documents tab, providing users with a comprehensive overview of their system's performance and the files that are currently being used to make predictions on fraudulent activity.
+
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im6.png" width="800" title="Blacklist Web" align="center">
+
+* To further enhance their understanding of their system's performance, users of our credit card fraud detection software can access the Data Analysis tab. This tab provides users with a detailed overview of their fraud data story, enabling them to observe trends and patterns in their data and gain deeper insights into the accuracy and effectiveness of their fraud detection system.
+
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im7.png" width="800" title="Blacklist Web" align="center">
+
+* Within the Data Analysis tab, the users can see the Blacklist Opinion info boxes, to see the percentages of changes of their risk contributions, consists of Category of purhcase, location effect, vendor blacklist and past vs present consisting of fraud risk change, # of purhcases changes, and amount change and lastly user fraud health info box to see likelihood of future fraud, purchase patterns, and location safety. Within the Data Analysis tab, users can explore a range of data visualization tools, such as graphs, charts, and tables, to gain a comprehensive understanding of their data. They can filter and sort their data based on various criteria, such as date, transaction type, or amount, to identify any unusual activity or patterns.
+
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im8.png" width="800" title="Blacklist Web" align="center">
+
+* In addition to exploring their own data, users of our credit card fraud detection software can also gain insights by comparing their data to the general population data. This feature is available within the Data Analysis tab, where users can view how their data compares to the data used to train the machine learning models.
+
+By comparing their data to the general population data, users can identify any patterns or trends that may be unique to their data, and make any necessary adjustments to their system's settings or analysis methods. They can also identify any areas where their data may be underrepresented or overrepresented, which can help them to improve the accuracy and effectiveness of their fraud detection system.
+
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im9.png" width="800" title="Blacklist Web" align="center">
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
