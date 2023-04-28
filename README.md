@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="https://github.com/saplanyanki/DS340-440/app/static/assets/BLACKLIST.jpg" width="350" title="Blacklist Web App">
+  <img src="https://github.com/saplanyanki/DS340-440/blob/main/app/static/assets/BLACKLIST.gif" width="350" title="Blacklist Web App">
   </a>
 
   <h3 align="center">Data Science Capstone Project @ Penn State</h3>
