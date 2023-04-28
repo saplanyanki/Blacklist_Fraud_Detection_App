@@ -59,7 +59,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<img src="https://github.com/saplanyanki/DS340-440/blob/main/im1.png" width="600" title="Blacklist Web">
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im1.png" width="800" title="Blacklist Web">
 
 Project:
 * The Blacklist web application is an innovative tool that uses the power of machine learning to detect and prevent credit card fraud. Our team has developed a custom model that employs various techniques to accurately classify fraudulent activity, providing users with a high level of security and peace of mind. The Blacklist architecture consists of three main components: the model, the backend, and the frontend. 
@@ -133,11 +133,11 @@ Clone the repository and follow Prerequisites.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-<img src="https://github.com/saplanyanki/DS340-440/blob/main/im3.png" width="600" title="Blacklist Web">
+<img src="https://github.com/saplanyanki/DS340-440/blob/main/im3.png" width="800" title="Blacklist Web" align="center">
 
 * The process begins when the user navigates to our blacklist website. From there, they are able to either log into their previously created account, or to register for an account if they are a new user. When logging into a previously created account, the sign-in page will refresh if the user credentials are incorrect. If the credentials are correct, the user will be redirected to the prediction page. From the registration page, the user is prompted to fill out their name, email, and password. There are restrictions to the passwords a user may create. The password must be at least eight characters and must contain numbers and special characters for password security.Once on the prediction page, the user is able to upload a comma separated value (csv) file of their credit card statement. Once uploaded, the user is then redirected to the prediction dashboard page.Finally, when on the dashboard, the user is able to see whether or not there were fraudulent transactions on their credit card statement. They are also able to view various graphs pertaining to the level of fraud found on that statement. Lastly, the user is also able to select various models to process their data.
 
-*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im4.png" width="600" title="Blacklist Web">
+*<img src="https://github.com/saplanyanki/DS340-440/blob/main/im4.png" width="800" title="Blacklist Web" align="center">
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
